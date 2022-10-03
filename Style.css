@@ -1,0 +1,38 @@
+html, body {
+    min-height: 100vh;
+    overflow: auto;
+    margin: 0px;
+}
+
+.nextButton, .choiceButton {
+    height: 6vh;
+    width: 200px;
+    margin: 1vh;
+}
+
+header {
+    height: 8vh;
+    padding: 1vh;
+    background-color: lightgray;
+}
+
+footer {
+    height: 8vh;
+    padding: 1vh;
+    text-align: right;
+    background-color: lightgray;
+}
+
+.main {
+    min-height: 78vh;
+    padding: 1vh;
+    background-color: lightcyan;
+}
+
+.title {
+    text-align: center;
+}
+
+.abstractActivity {
+
+}
