@@ -6,6 +6,10 @@ body {
   background-color: lightcyan;
 }
 
+p {
+  font-size: 1.3em;
+}
+
 .nextButton,
 .choiceButton {
   height: 6vh;
@@ -30,7 +34,7 @@ footer {
   min-height: 78vh;
   padding: 1vh;
 
-  width: 50%;
+  width: 60%;
   margin: auto;
 }
 
@@ -62,4 +66,59 @@ footer {
 
 .question {
   padding-top: 20px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+}
+
+.grid-item-1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.grid-item-2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.grid-item-3 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.grid-item-4 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.grid-item-5 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+img:hover {
+  transition: all 0.25s ease;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+label {
+  font-size: 1.5em;
+  padding-right: 20px;
+}
+
+select {
+  font-size: 1.5em;
+  padding: 4px 20px;
+}
+
+.ranking-div {
+  padding-bottom: 10%;
+}
+
+.error {
+  color: red;
+  display: none;
 }
