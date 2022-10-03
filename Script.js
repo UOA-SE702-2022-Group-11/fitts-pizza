@@ -44,4 +44,22 @@ function handleRankingQuestions() {
       document.getElementById(`choice${i + 1}`).value
     );
   }
+
+  window.location.href = "questionnaireResults.html";
+}
+
+function handleDownloadResults() {
+  const rankingResults = {
+    1: sessionStorage.getItem("rankingChoice1"),
+    2: sessionStorage.getItem("rankingChoice2"),
+    3: sessionStorage.getItem("rankingChoice3"),
+    4: sessionStorage.getItem("rankingChoice4"),
+    5: sessionStorage.getItem("rankingChoice5"),
+  };
+
+  const blob = new Blob([JSON.stringify(rankingResults)], {
+    type: "application/json",
+  });
+
+  document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
