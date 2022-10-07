@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Fitts' Law Attitudes Questionnaire</title>
+<link rel="stylesheet" href="Style.css">
+<script src="Script.js"></script>
+<body>
+    <header>
+        <h1 class="title">Fitts' Law Attitudes Evaluation</h1>
+    </header>
+
+    <div class="instructions">
+        <p>
+            Please answer the following questions regarding your attitudes on Fitts' Law. There are no right or wrong answers.
+        </p>
+        <p>
+            With 1(one) being <b>Strongly Disagree</b> and 5(five) being <b>Strongly Agree</b>, rate the following between 1 and 5:
+        </p>
+    </div>
+
+    <form>
+        <table>
+            <tr>
+                <td><label for="A-s1">The Fitts' Law concept is an important concept to understand.</label></td>
+                <td><input type="number" id="A-s1" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td><label for="A-s2">Fitts' Law is a concept that does not have value outside of research and experimentation.</label></td>
+                <td><input type="number" id="A-s2" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td><label for="A-s3">The Fitts' Law concept is important when creating designs for users.</label></td>
+                <td><input type="number" id="A-s3" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td><label for="A-s4">Fitts' Law is a concept that I will apply in my future designs.</label></td>
+                <td><input type="number" id="A-s4" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td><label for="A-s5">I believe I can identify a design which adheres to Fitts' Law.</label></td>
+                <td><input type="number" id="A-s5" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td><label for="A-s6">I believe I can identify a design which does not adhere to Fitts' Law.</label></td>
+                <td><input type="number" id="A-s6" min="1" max="5"></td>
+            </tr>
+            <tr>
+                <td><label for="A-s7">I believe that the application of and adherence to Fitts' Law depends on the context and situation.</label></td>
+                <td><input type="number" id="A-s7" min="1" max="5"></td>
+            </tr>
+        </table>
+    </form>
+
+    <footer>
+        <button class="nextButton" onclick="location.href = 'Choice.html';">Next</button>
+    </footer>
+</body>
+</html>
