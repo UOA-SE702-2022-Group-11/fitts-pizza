@@ -17,5 +17,5 @@ function saveTheoryAnswersData() {
     sessionStorage.setItem("T-Q4", document.querySelector('input[name="Q4"]:checked').value);
     sessionStorage.setItem("T-Q5", document.querySelector('input[name="Q5"]:checked').value);
 
-    //NEED TO ADD PAGE NAVIGATION TO NEXT PAGE
+    window.location.href = "attitudes.html";
 }
