@@ -36,3 +36,12 @@ footer {
 .abstractActivity {
 
 }
+
+.instructions {
+    text-align: center;
+    font-size: large;
+}
+
+.questionnaire {
+    padding: 10%;
+}
