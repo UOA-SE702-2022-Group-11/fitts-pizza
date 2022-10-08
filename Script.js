@@ -7,7 +7,7 @@ function saveAttitudeRankingsData() {
   sessionStorage.setItem("A-s6", document.getElementById('A-s6').value);
   sessionStorage.setItem("A-s7", document.getElementById('A-s7').value);
 
-  window.location.href="questionnaireResults.html";
+  navigateToQuestionnaireResultsPage();
 }
 
 function saveTheoryAnswersData() {
@@ -89,6 +89,23 @@ function handleRankingQuestions() {
   }
 
   window.location.href = "theory.html";
+}
+
+function startPreTest() {
+  sessionStorage.setItem("Pre-Test Complete", "false");
+
+  window.location.href="questionnaire-pages/compare-contrast.html";
+}
+
+function navigateToQuestionnaireResultsPage() {
+  let preTestComplete = sessionStorage.getItem("Pre-Test Complete");
+
+  if (preTestComplete === "false") {
+    sessionStorage.setItem("Pre-Test Complete", "true");
+    window.location.href="pretestQuestionnaireResults.html";
+  } else {
+    window.location.href="posttestQuestionnaireResults.html";
+  }
 }
 
 function handleDownloadResults() {
