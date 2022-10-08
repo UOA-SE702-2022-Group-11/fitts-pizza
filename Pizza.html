@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>Realistic</title>
-<link rel="stylesheet" href="Style.css">
-<script src="Script.js"></script>
-<body>
+  <meta charset="UTF-8" />
+  <title>Realistic</title>
+  <link rel="stylesheet" href="Style.css" />
+  <link rel="stylesheet" href="Pizza.css" />
+  <script src="Script.js"></script>
+  <body>
     <header>
-        <h1 class="title">Realistic Pizza task</h1>
+      <h1 class="title">Realistic Pizza task</h1>
     </header>
 
-    <div class="main">
-        <p>Main page content</p>
+    <div class="pizza-main">
+      <div class="categories-container">
+        <button class="category">Pizza Size</button>
+        <button class="category">Pizza Base</button>
+        <button class="category">Protein</button>
+        <button class="category">Toppings</button>
+        <button class="category">Sauce</button>
+      </div>
+      <div class="items-container">
+        <button class="item">Item 1</button>
+        <button class="item">Item 2</button>
+        <button class="item">Item 3</button>
+        <button class="item">Item 4</button>
+        <button class="item">Item 5</button>
+        <button class="item">Item 6</button>
+        <button class="item">Item 7</button>
+      </div>
+      <div class="order-container">
+        <div class="order">
+          <h2>Pizza Order</h2>
+          <ol>
+            <li>Large</li>
+            <li>Thin Stretched</li>
+            <li>Medium Cheese</li>
+          </ol>
+        </div>
+        <div class="pizza"></div>
+        <div class="submit-container">
+          <button class="submit-btn">Submit Order</button>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <button class="nextButton" onclick="location.href = 'Test.html';">Next</button>
+      <button class="nextButton" onclick="location.href = 'Test.html';">
+        Next
+      </button>
     </footer>
-</body>
+  </body>
 </html>
