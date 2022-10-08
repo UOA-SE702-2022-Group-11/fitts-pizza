@@ -1,20 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>Introduction</title>
-<link rel="stylesheet" href="Style.css">
-<script src="Script.js"></script>
-<body>
+  <meta charset="UTF-8" />
+  <title>Introduction</title>
+  <link rel="stylesheet" href="Style.css" />
+  <script src="Script.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <body>
     <header>
-        <h1 class="title">Introduction to Fitts Law</h1>
+      <h1 class="title">Introduction to Fitts Law</h1>
     </header>
 
     <div class="main">
-        <p>Main page content</p>
+      <p>
+        A lot of interfaces use pointing as input: clicking on the screen with a
+        mouse, pointing on a phone with your finger, or tapping with a pen are
+        common. Since these techniques are used so often, it's good to know how
+        much time they will take so that you can design interactive systems to
+        be efficient. Should you have bigger buttons on a screen so they are
+        easier to press? Or is it better to have lots of small ones close
+        together? And how is this affected if you're in a difficult environment
+        such as bouncing around in a vehicle or helping after a natural
+        disaster?
+      </p>
+      <p>
+        The amount of time it takes to point at things on a digital device is
+        surprisingly predictable, and we're going to explore a common way to
+        make predictions about this based on the work of the psychologist Paul
+        Fitts.
+      </p>
+      <p>
+        The amount of time it takes to point at an object depends on two things:
+      </p>
+      <ul>
+        <li>the width of the object and</li>
+        <li>the distance you have to move to point at it.</li>
+      </ul>
+      <p>
+        This observation can be measured mathematically using a formula known as
+        <em>Fitts' law.</em>
+      </p>
+
+      <h1>Fitts' Law</h1>
+      <p>
+        Fitts' law gives a formula to help us estimate how long it will take
+        someone to click or tap at something on a screen. The thing that you're
+        pointing at might be a button, menu, sprite, text box or something else,
+        but the general word we use for it is the "target". When we write a
+        formula for this, we use D for the distance to the target, and W for the
+        "width" (size) of the target.
+      </p>
+      <div class="center">
+        <img class="image" src="fitts-distance-and-width.png" />
+        <p>
+          Image retrieved from:
+          <a
+            href="https://www.csfieldguide.org.nz/en/chapters/human-computer-interaction/fitts-law/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >csfieldguide</a
+          >
+        </p>
+      </div>
+      <p>
+        The units of measurement don't really matter as long they are consistent
+        - it might be pixels, centimetres or inches.
+      </p>
+      <p>
+        The heart of Fitts' law is the ratio of D/W. For example, if you need to
+        move a mouse 14cm to get to a 2cm target, D is 14cm and W is 2cm, so D/W
+        is 7.
+      </p>
+      <p>
+        One simple prediction from Fitts' law predicts that if this ratio is the
+        same, then the time to point at the target will be the same. For
+        example, moving a distance of 7cm to get to a 1cm target also has D/W
+        ratio of 7, so should take about the same amount of time as moving 14cm
+        to a 2cm target.
+      </p>
+      <h2>Index of Difficulty (ID)</h2>
+      <p>
+        However, if the ratio doubles, the time does not double. For example, if
+        the target size stays the same, but it is placed twice as far away, it
+        won't take twice as long to move to it - the time taken goes up only a
+        small amount. To work this out, Fitts introduced the "Index of
+        Difficulty" (ID), which is proportional to the time it should take to
+        point at a target. The formula for the Index of Difficulty (ID) is shown
+        below.
+      </p>
+      <p>$$ ID=\log_2\Big(\frac{D}{W}+1\Big) $$</p>
+      <p>
+        For example, if you put in a distance of 14 and a width of 2, the index
+        of difficulty is 3.0. If you wanted to make the pointing take twice as
+        long, you'd need the ID to be twice as much (6.0). Try experimenting
+        with the distance in the formula above to get an ID of 6.0. You'll find
+        that it needs to be more than twice as big; in fact, it needs to be
+        126cm - that's right, the distance needs to be a lot larger to make the
+        pointing take twice as long.
+      </p>
+      <h2>Movement Time (MT)</h2>
+      <p>
+        MT is directly proportional to ID. \(a\) and \(b\) are constants MT
+        intercept and slope, these are dependent on the person and the pointing
+        device being used during data collection? Fitts' law predicts that the
+        time taken to point at a target (Movement Time) will be proportional to
+        the "Index of Difficulty". The following formula can be used to make
+        these predictions.
+      </p>
+      <p>$$ MT=a+b\Big(\log_2\Big(\frac{D}{W}+1\Big)\Big) $$</p>
+      <p>
+        In this formula, \(a\) and \(b\) are constants that are dependent on the
+        person, and the pointing device being used. These values can be
+        empirically determined. \(a\) is the Movement Time intercept, while
+        \(b\) is the slope.
+      </p>
+      <p>
+        By timing users when interacting with an interface, the results of
+        Movement Time, also known as the Average Time, can be plotted against
+        Index of Difficulty to allow the calculation of \(a\) and \(b\). As seen
+        in the graph below, Average Time is directly proportional to Index of
+        Difficulty.
+      </p>
+      <div class="center">
+        <img class="image" src="fitts-scatter-regression.png" />
+        <p>
+          Image retrieved from:
+          <a
+            href="https://www.csfieldguide.org.nz/en/chapters/human-computer-interaction/fitts-law/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >csfieldguide</a
+          >
+        </p>
+      </div>
+      <p>
+        Now that you have learnt about the basic concepts of Fitts’ Law, next
+        you can try out your knowledge with an activity.
+      </p>
+      <p>
+        The above content is taken from the
+        <a
+          href="https://www.csfieldguide.org.nz/en/chapters/human-computer-interaction/fitts-law/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Computer Science Field Guide</a
+        >
+        which is shared under a
+        <a
+          href="https://creativecommons.org/licenses/by-sa/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Creative Commons Attribution-ShareAlike 4.0 International license
+        </a>
+        . The content has been slightly modified to include more information
+        about some specific concepts. These modifications are available for use
+        under the same ShareAlike creative commons license.
+      </p>
     </div>
 
     <footer>
-        <button class="nextButton" onclick="location.href = 'Test.html';">Next</button>
+      <button class="nextButton" onclick="location.href = 'Test.html';">
+        Next
+      </button>
     </footer>
-</body>
+  </body>
 </html>

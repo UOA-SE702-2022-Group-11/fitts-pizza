@@ -1,38 +1,50 @@
-html, body {
-    min-height: 100vh;
-    overflow: auto;
-    margin: 0px;
+html,
+body {
+  min-height: 100vh;
+  overflow: auto;
+  margin: 0px;
+  background-color: lightcyan;
 }
 
-.nextButton, .choiceButton {
-    height: 6vh;
-    width: 200px;
-    margin: 1vh;
+.nextButton,
+.choiceButton {
+  height: 6vh;
+  width: 200px;
+  margin: 1vh;
 }
 
 header {
-    height: 8vh;
-    padding: 1vh;
-    background-color: lightgray;
+  height: 8vh;
+  padding: 1vh;
+  background-color: lightgray;
 }
 
 footer {
-    height: 8vh;
-    padding: 1vh;
-    text-align: right;
-    background-color: lightgray;
+  height: 8vh;
+  padding: 1vh;
+  text-align: right;
+  background-color: lightgray;
 }
 
 .main {
-    min-height: 78vh;
-    padding: 1vh;
-    background-color: lightcyan;
+  min-height: 78vh;
+  padding: 1vh;
+
+  width: 50%;
+  margin: auto;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .abstractActivity {
+}
 
+.center {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
