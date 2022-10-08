@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <title>Ranking</title>
+  <link rel="stylesheet" href="../Style.css" />
+  <script src="../Script.js"></script>
+  <body>
+    <header>
+      <h1 class="title">Ranking Question</h1>
+    </header>
+
+    <div class="main">
+      <p>
+        Please consider the following 5 designs. (You can hover over each image
+        to view a larger version of it.)
+      </p>
+
+      <div class="grid-container">
+        <div class="grid-item-1">
+          <h2>Design A</h2>
+          <img width="100%" class="image" src="./rankingQuestions/a.png" />
+        </div>
+
+        <div class="grid-item-2">
+          <h2>Design B</h2>
+          <img width="100%" class="image" src="./rankingQuestions/b.png" />
+        </div>
+
+        <div class="grid-item-3">
+          <h2>Design C</h2>
+          <img width="100%" class="image" src="./rankingQuestions/c.png" />
+        </div>
+
+        <div class="grid-item-4">
+          <h2>Design D</h2>
+          <img width="100%" class="image" src="./rankingQuestions/d.png" />
+        </div>
+
+        <div class="grid-item-5">
+          <h2>Design E</h2>
+          <img width="100%" class="image" src="./rankingQuestions/e.png" />
+        </div>
+      </div>
+
+      <div>
+        <p>
+          Please rank each design from best to worst in relation to Fitts' Law.
+          (1 = best, 5 = worst)
+        </p>
+
+        <p class="error" id="duplicateErrorMessage">
+          Each design can only appear once on the list
+        </p>
+        <p class="error" id="emptyRankingErrorMessage">
+          You must rank every design
+        </p>
+
+        <div class="center ranking-div">
+          <div class="question">
+            <label for="choice1">1</label>
+            <select id="choice1" name="choice1" required>
+              <option hidden disabled selected value></option>
+              <option value="a">Design A</option>
+              <option value="b">Design B</option>
+              <option value="c">Design C</option>
+              <option value="d">Design D</option>
+              <option value="e">Design E</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="choice2">2</label>
+            <select id="choice2" name="choice2" required>
+              <option hidden disabled selected value></option>
+              <option value="a">Design A</option>
+              <option value="b">Design B</option>
+              <option value="c">Design C</option>
+              <option value="d">Design D</option>
+              <option value="e">Design E</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="choice3">3</label>
+            <select id="choice3" name="choice3" required>
+              <option hidden disabled selected value></option>
+              <option value="a">Design A</option>
+              <option value="b">Design B</option>
+              <option value="c">Design C</option>
+              <option value="d">Design D</option>
+              <option value="e">Design E</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="choice4">4</label>
+            <select id="choice4" name="choice4" required>
+              <option hidden disabled selected value></option>
+              <option value="a">Design A</option>
+              <option value="b">Design B</option>
+              <option value="c">Design C</option>
+              <option value="d">Design D</option>
+              <option value="e">Design E</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="choice5">5</label>
+            <select id="choice5" name="choice5" required>
+              <option hidden disabled selected value></option>
+              <option value="a">Design A</option>
+              <option value="b">Design B</option>
+              <option value="c">Design C</option>
+              <option value="d">Design D</option>
+              <option value="e">Design E</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <button class="nextButton" onclick="handleRankingQuestions();">
+        Next
+      </button>
+    </footer>
+  </body>
+</html>
