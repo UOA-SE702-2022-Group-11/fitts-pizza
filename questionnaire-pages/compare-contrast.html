@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <title>Questionnaire</title>
+  <link rel="stylesheet" href="../Style.css" />
+  <script src="../Script.js"></script>
+  <body>
+    <header>
+      <h1 class="title">Compare and Contrast Evaluation</h1>
+    </header>
+
+    <div class="main">
+      <p>
+        Please consider the following two designs taken from airline booking
+        websites. These components are used to book a trip. Once you have inspected them, please answer the following
+        questions.
+      </p>
+
+      <div class="center">
+        <h2>Design 1</h2>
+        <img width="200%" class="image" src="airnz.png" />
+      </div>
+
+      <div class="center">
+        <h2>Design 2</h2>
+        <img width="200%" class="image" src="qantas.png" />
+      </div>
+
+      <div class="compareContrastQuestions">
+        <div class="question">
+          <label for="compareContrast1"
+            >What design elements relating to Fitts' Law can you identify for
+            each design?</label
+          >
+          <textarea
+            class="textAreaQuestions"
+            id="compareContrast1"
+            cols="120"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <div class="question">
+          <label for="compareContrast2"
+            >Which design do you think is better designed in relation to Fitts'
+            Law considering the purpose of the design and its audience?
+            Why?</label
+          >
+          <textarea
+            class="textAreaQuestions"
+            id="compareContrast2"
+            cols="120"
+            rows="5"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <button
+        class="nextButton"
+        onclick="handleCompareContrastQuestionAnswers();"
+      >
+        Next
+      </button>
+    </footer>
+  </body>
+</html>
