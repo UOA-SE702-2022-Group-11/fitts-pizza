@@ -92,15 +92,45 @@ function handleRankingQuestions() {
 }
 
 function handleDownloadResults() {
+  const compareContrastResults = {
+    CC1: sessionStorage.getItem("compareContrast1"),
+    CC2: sessionStorage.getItem("compareContrast2"),
+  }
+
   const rankingResults = {
-    1: sessionStorage.getItem("rankingChoice1"),
-    2: sessionStorage.getItem("rankingChoice2"),
-    3: sessionStorage.getItem("rankingChoice3"),
-    4: sessionStorage.getItem("rankingChoice4"),
-    5: sessionStorage.getItem("rankingChoice5"),
+    R1: sessionStorage.getItem("rankingChoice1"),
+    R2: sessionStorage.getItem("rankingChoice2"),
+    R3: sessionStorage.getItem("rankingChoice3"),
+    R4: sessionStorage.getItem("rankingChoice4"),
+    R5: sessionStorage.getItem("rankingChoice5"),
   };
 
-  const blob = new Blob([JSON.stringify(rankingResults)], {
+  const attitudeResults = {
+    A_s1: sessionStorage.getItem("A-s1"),
+    A_s2: sessionStorage.getItem("A-s2"),
+    A_s3: sessionStorage.getItem("A-s3"),
+    A_s4: sessionStorage.getItem("A-s4"),
+    A_s5: sessionStorage.getItem("A-s5"),
+    A_s6: sessionStorage.getItem("A-s6"),
+    A_s7: sessionStorage.getItem("A-s7"),
+  }
+
+  const theoryAnswers =  {
+    T_Q1: sessionStorage.getItem("T-Q1"),
+    T_Q2: sessionStorage.getItem("T-Q2"),
+    T_Q3: sessionStorage.getItem("T-Q3"),
+    T_Q4: sessionStorage.getItem("T-Q4"),
+    T_Q5: sessionStorage.getItem("T-Q5"),
+  }
+
+  const evaluationResults = {
+    CompareConrast: compareContrastResults,
+    Ranking: rankingResults,
+    Attitude: attitudeResults,
+    Theory: theoryAnswers,
+  }
+
+  const blob = new Blob([JSON.stringify(evaluationResults)], {
     type: "application/json",
   });
 
