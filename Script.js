@@ -7,7 +7,7 @@ function saveAttitudeRankingsData() {
     sessionStorage.setItem("A-s6", document.getElementById('A-s6').value);
     sessionStorage.setItem("A-s7", document.getElementById('A-s7').value);
 
-    //NEED TO ADD PAGE NAVIGATION TO NEXT PAGE
+    window.location.href="questionnaireResults.html";
 }
 
 function saveTheoryAnswersData() {
@@ -65,7 +65,7 @@ function handleRankingQuestions() {
     );
   }
 
-  window.location.href = "questionnaireResults.html";
+  window.location.href = "theory.html";
 }
 
 function handleDownloadResults() {
