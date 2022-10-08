@@ -134,3 +134,9 @@ select {
   color: red;
   display: none;
 }
+
+.errorMessage {
+  color: red;
+  display: none;
+  margin-left: 15%;
+}

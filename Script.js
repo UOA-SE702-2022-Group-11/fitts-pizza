@@ -1,23 +1,46 @@
 function saveAttitudeRankingsData() {
-    sessionStorage.setItem("A-s1", document.getElementById('A-s1').value);
-    sessionStorage.setItem("A-s2", document.getElementById('A-s2').value);
-    sessionStorage.setItem("A-s3", document.getElementById('A-s3').value);
-    sessionStorage.setItem("A-s4", document.getElementById('A-s4').value);
-    sessionStorage.setItem("A-s5", document.getElementById('A-s5').value);
-    sessionStorage.setItem("A-s6", document.getElementById('A-s6').value);
-    sessionStorage.setItem("A-s7", document.getElementById('A-s7').value);
+  sessionStorage.setItem("A-s1", document.getElementById('A-s1').value);
+  sessionStorage.setItem("A-s2", document.getElementById('A-s2').value);
+  sessionStorage.setItem("A-s3", document.getElementById('A-s3').value);
+  sessionStorage.setItem("A-s4", document.getElementById('A-s4').value);
+  sessionStorage.setItem("A-s5", document.getElementById('A-s5').value);
+  sessionStorage.setItem("A-s6", document.getElementById('A-s6').value);
+  sessionStorage.setItem("A-s7", document.getElementById('A-s7').value);
 
-    window.location.href="questionnaireResults.html";
+  window.location.href="questionnaireResults.html";
 }
 
 function saveTheoryAnswersData() {
-    sessionStorage.setItem("T-Q1", document.querySelector('input[name="Q1"]:checked').value);
-    sessionStorage.setItem("T-Q2", document.querySelector('input[name="Q2"]:checked').value);
-    sessionStorage.setItem("T-Q3", document.querySelector('input[name="Q3"]:checked').value);
-    sessionStorage.setItem("T-Q4", document.querySelector('input[name="Q4"]:checked').value);
-    sessionStorage.setItem("T-Q5", document.querySelector('input[name="Q5"]:checked').value);
+  //Check all questions have been answered
+  let theoryQuestionsCount = 5;
+  let answeredQuestionCount = 0;
+  var options;
 
-    window.location.href = "attitudes.html";
+  for (let i = 1; i < theoryQuestionsCount + 1; i++) {
+    options = document.getElementsByName("Q"+i);
+    
+    for (let count = 0; count < options.length; count++) {
+      if (options[count].checked) {
+        answeredQuestionCount++;
+        break;
+      }
+    }
+  }
+
+  if (answeredQuestionCount != theoryQuestionsCount) {
+    //Not all questions were answered
+    document.getElementById("theoryQuestionsIncompleteMessage").style.display = "block";
+  } else {
+    document.getElementById("theoryQuestionsIncompleteMessage").style.display = "none";
+  }
+
+  sessionStorage.setItem("T-Q1", document.querySelector('input[name="Q1"]:checked').value);
+  sessionStorage.setItem("T-Q2", document.querySelector('input[name="Q2"]:checked').value);
+  sessionStorage.setItem("T-Q3", document.querySelector('input[name="Q3"]:checked').value);
+  sessionStorage.setItem("T-Q4", document.querySelector('input[name="Q4"]:checked').value);
+  sessionStorage.setItem("T-Q5", document.querySelector('input[name="Q5"]:checked').value);
+
+  window.location.href = "attitudes.html";
 }
 
 function handleCompareContrastQuestionAnswers() {
