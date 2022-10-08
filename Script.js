@@ -124,7 +124,7 @@ function handleDownloadResults() {
   }
 
   const evaluationResults = {
-    CompareConrast: compareContrastResults,
+    CompareContrast: compareContrastResults,
     Ranking: rankingResults,
     Attitude: attitudeResults,
     Theory: theoryAnswers,
