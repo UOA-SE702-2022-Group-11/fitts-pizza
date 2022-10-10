@@ -81,8 +81,12 @@
       </form>
     </div>
 
+    <p class="errorMessage" id="needConsentMessage">
+      You must consent by checking the checkbox to participate and continue.
+    </p>
+
     <footer>
-      <button class="nextButton" onclick="location.href = 'Intro.html';">
+      <button class="nextButton" onclick="processConsentDetails();">
         Next
       </button>
     </footer>
