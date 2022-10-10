@@ -150,3 +150,25 @@ select {
   color: red;
   display: none;
 }
+
+.consentFormInput {
+  width: 700px;
+  font-size: 1.5em;
+}
+
+.consentFormParagraph {
+  font-size: 20pt;
+}
+
+.checkbox {
+  width: 45px;
+  height: 45px;
+}
+
+.checkboxForm {
+  width: 50px;
+}
+
+.checkboxLabel {
+  width: 700px;
+}
