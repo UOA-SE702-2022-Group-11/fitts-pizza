@@ -1,16 +1,16 @@
 # Fitts' Pizza
 
-SOFTENG 702 Group Project
+*SOFTENG 702 Group 11 Project*
 
-This project studies the effectiveness of interactive design based activities for teaching Fitts' Law compared to more abstract tasks. Users are able to Learn about Fitts' Law, answer some questions about Fitts' Law and try either the abstract or realistic task.
+This project studies the effectiveness of interactive design based activities for teaching Fitts' Law compared to more abstract tasks. Users are able to learn about Fitts' Law, answer some questions about Fitts' Law, and try either the abstract or realistic task.
 
 ## Features
 - Pre-reading section - to understand what Fitts' Law is and how it relates to interface design.
-- Pre-test questionnaire
+- Pre-activity questionnaire
 - Interactive activity
 	- Design based Pizza order maker activity
 	- Abstract clicker activity
-- Post-test questionnaire
+- Post-activity questionnaire
 - Download page to view questionnaire results
 
 ## Repository
