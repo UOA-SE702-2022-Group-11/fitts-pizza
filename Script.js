@@ -94,7 +94,7 @@ function handleRankingQuestions() {
 function startPreTest() {
   sessionStorage.setItem("Pre-Test Complete", "false");
 
-  window.location.href="questionnaire-pages/compare-contrast.html";
+  window.location.href="questionnaire-pages/testIntro.html";
 }
 
 function navigateToQuestionnaireResultsPage() {
