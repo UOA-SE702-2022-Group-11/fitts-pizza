@@ -5,7 +5,6 @@ function handleCompareContrastQuestionAnswers() {
   sessionStorage.setItem("compareContrast2", compareContrast2);
   window.location.href = "ranking.html";
 }
-
 function handleRankingQuestions() {
   let choices = [];
   choices.push(document.getElementById("choice1").value);
@@ -60,4 +59,43 @@ function handleDownloadResults() {
   });
 
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
+}
+function addItem(item){
+  goodClick();
+  const order = document.getElementById("order-list");
+  const itemNode = document.createElement("li");
+  const itemText = document.createTextNode(item);
+  itemNode.appendChild(itemText);
+  order.appendChild(itemNode);
+
+}
+function changeCategory(categoryId){
+  goodClick();
+  const containers = document.getElementsByClassName("items-container");
+  for (const container of containers) {
+
+    container.style.display = "none";
+
+  }
+    document.getElementById(categoryId).style.display = "flex";
+}
+let clicks = 0;
+let goodClicks = 0;
+function missclick(){
+  clicks += 1;
+  alert(clicks - goodClicks);
+}
+function goodClick(){
+  goodClicks += 1;
+}
+let timeStart = 0;
+let timeEnd = 0;
+function start(){
+  timeStart = Date.now();
+}
+function end(){
+  timeEnd = Date.now();
+}
+function getTimeSpan(){
+  return timeEnd-timeStart;
 }

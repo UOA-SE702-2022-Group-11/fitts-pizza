@@ -5,31 +5,37 @@
   <link rel="stylesheet" href="Style.css" />
   <link rel="stylesheet" href="Pizza.css" />
   <script src="Script.js"></script>
-  <body>
+  <body onclick="missclick()">
     <header>
       <h1 class="title">Realistic Pizza task</h1>
     </header>
 
     <div class="pizza-main">
       <div class="categories-container">
-        <button class="category">Pizza Base</button>
-        <button class="category">Protein</button>
-        <button class="category">Toppings</button>
-        <button class="category">Sauce</button>
+        <button class="category" onclick="changeCategory('base')">Pizza Base</button>
+        <button class="category" onclick="changeCategory('protein')">Protein</button>
+        <button class="category" onclick="changeCategory('toppings')">Toppings</button>
+        <button class="category" onclick="changeCategory('sauce')">Sauce</button>
       </div>
-      <div class="items-container">
-        <button class="item">Item 1</button>
-        <button class="item">Item 2</button>
-        <button class="item">Item 3</button>
-        <button class="item">Item 4</button>
-        <button class="item">Item 5</button>
-        <button class="item">Item 6</button>
-        <button class="item">Item 7</button>
+      <div class="items-container" id="base">
+        <button class="item" onclick="addItem('Thin')">Thin</button>
+        <button class="item" onclick="addItem('Thick')">Thick</button>
+      </div>
+      <div class="items-container" id="protein">
+        <button class="item" onclick="addItem('Sausage')">Sausage</button>
+        <button class="item" onclick="addItem('Meatball')">Meatball</button>
+      </div>
+      <div class="items-container" id="toppings">
+        <button class="item" onclick="addItem('Onion')">Onion</button>
+        <button class="item" onclick="addItem('Olive')">Olive</button>
+      </div>
+      <div class="items-container" id="sauce">
+        <button class="item" onclick="addItem('Tomato')">Tomato</button>
       </div>
       <div class="order-container">
         <div class="order">
           <h2>Pizza Order</h2>
-          <ol>
+          <ol id="order-list">
             <li>Large Base</li>
             <li>Medium Pepperoni</li>
             <li>Medium Cheese</li>
