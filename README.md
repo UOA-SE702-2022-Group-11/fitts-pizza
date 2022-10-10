@@ -26,5 +26,12 @@ https://github.com/UOA-SE702-2022-Group-11/fitts-pizza
 ## Saving and viewing results
 During the activity, you are able to download and save the results of the questionnaires and activity results. These are stored in JSON files.
 
+## Contents of repository
+
+- Application
+- Experiment preparation document and evaluation plan
+- Participant Information Sheet
+- UAHPEC certificates for each group member
+
 ## Acknowledgements
 The abstract task used originates from the computer science field guide website: https://www.csfieldguide.org.nz/en/chapters/human-computer-interaction/fitts-law/
