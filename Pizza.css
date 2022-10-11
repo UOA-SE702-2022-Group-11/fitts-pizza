@@ -10,7 +10,7 @@
   height: 77vh;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.5rem;
   padding: 1rem;
   background-color: cornsilk;
 }
@@ -131,4 +131,103 @@
 
 #nextTaskBtn {
   display: none;
+}
+
+.categories-container-2 {
+  margin: 0;
+  width: 25%;
+  height: 77vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding: 1rem;
+  background-color: cornsilk;
+}
+
+.category-btn-2 {
+  padding: 0rem;
+  width: 5rem;
+  margin: 1rem;
+}
+
+.items-container-2 {
+  padding: 1rem;
+  width: 50%;
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-content: flex-start;
+}
+
+.item-2 {
+  width: 5rem;
+  padding: 0rem;
+  margin: 3rem;
+}
+
+.submit-container-2 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submit-btn-2 {
+  background-color: lightgreen;
+  border-radius: 0.2rem;
+  padding: 0rem;
+  margin: 1rem 2rem;
+  width: 6rem;
+}
+
+.categories-container-3 {
+  margin: 0;
+  width: 25%;
+  height: 77vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem;
+  background-color: cornsilk;
+}
+
+.category-btn-3 {
+  padding: 1rem;
+  width: 12rem;
+}
+
+.items-container-3 {
+  padding: 1rem;
+  width: 50%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-content: flex-start;
+}
+
+.item-3 {
+  width: 8rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.submit-container-3 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submit-btn-3 {
+  background-color: lightgreen;
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  margin: 1rem 2rem;
+  width: 10rem;
 }
