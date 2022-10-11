@@ -262,5 +262,5 @@ function processConsentDetails() {
 	sessionStorage.setItem("sessionNumber", sessionNumber);
 	sessionStorage.setItem("consented", consented);
 
-	window.location.href = "Intro.html";
+	window.location.href = "Prereading.html";
 }
