@@ -133,15 +133,11 @@ function checkOrder() {
   if (currentOrderItems.length !== orders[currentOrder].length) {
     return false;
   }
-  const checkedItems = new Set();
 
   for (const currentOrderItem of currentOrderItems) {
     for (const orderItem of orders[currentOrder]) {
-      if (!checkedItems.has(currentOrderItem.textContent)) {
-        checkedItems.add(currentOrderItem.textContent);
-        if (orderItem === currentOrderItem.textContent) {
-          correctItemCount++;
-        }
+      if (orderItem === currentOrderItem.textContent) {
+        correctItemCount++;
       }
     }
   }
