@@ -4,7 +4,7 @@
   display: flex;
 }
 
-.categories-container {
+.categories-container-1 {
   margin: 0;
   width: 25%;
   height: 77vh;
@@ -15,15 +15,15 @@
   background-color: cornsilk;
 }
 
-.category-btn {
+.category-btn-1 {
   padding: 1rem;
 }
 
-.category-btn:hover {
+.category-btn-1:hover {
   filter: brightness(90%);
 }
 
-.items-container {
+.items-container-1 {
   padding: 1rem;
   width: 50%;
   display: flex;
@@ -33,7 +33,7 @@
   align-content: flex-start;
 }
 
-.item {
+.item-1 {
   width: 8rem;
   padding: 2rem;
 }
@@ -94,14 +94,14 @@
   display: block;
 }
 
-.submit-container {
+.submit-container-1 {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-.submit-btn {
+.submit-btn-1 {
   background-color: lightgreen;
   border-radius: 0.2rem;
   padding: 0.6rem;

@@ -291,6 +291,12 @@ function navigateToQuestionnaireResultsPage() {
 }
 
 function handleDownloadResults() {
+  const sessionDetails = {
+    Researcher_Name: sessionStorage.getItem("researcherName"),
+    Session_Number: sessionStorage.getItem("sessionNumber"),
+    Consent_Obtained: sessionStorage.getItem("consented"),
+  };
+
   const compareContrastResults = {
     CC1: sessionStorage.getItem("compareContrast1"),
     CC2: sessionStorage.getItem("compareContrast2"),
@@ -323,6 +329,7 @@ function handleDownloadResults() {
   };
 
   const evaluationResults = {
+    SessionDetails: sessionDetails,
     CompareContrast: compareContrastResults,
     Ranking: rankingResults,
     Attitude: attitudeResults,
@@ -336,6 +343,7 @@ function handleDownloadResults() {
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
 let numOrderItems = 0;
+let currentTask = 0;
 
 function addItem(item) {
   goodClick();
@@ -370,12 +378,16 @@ function addItem(item) {
 }
 function changeCategory(categoryId) {
   goodClick();
-  const containers = document.getElementsByClassName("items-container");
+  const containers = document.getElementsByClassName(
+    "items-container-" + (currentTask + 1)
+  );
   for (const container of containers) {
     container.style.display = "none";
   }
 
-  const categoryBtns = document.getElementsByClassName("category-btn");
+  const categoryBtns = document.getElementsByClassName(
+    "category-btn-" + (currentTask + 1)
+  );
   for (const categoryBtn of categoryBtns) {
     categoryBtn.style.backgroundColor = "whitesmoke";
     categoryBtn.style.borderRadius = "0.2rem";
@@ -409,7 +421,7 @@ function categoryCLick(){
 function goodClick() {
   goodClicks += 1;
 }
-function getClicks(){
+function getClicks() {
   let missClicks = clicks - goodClicks;
   sessionStorage.setItem("missClicks", missClicks);
   return missClicks;
@@ -434,7 +446,6 @@ function getTimeSpan() {
   let timeStart = sessionStorage.getItem("timeStart");
   let timeEnd = sessionStorage.getItem("timeEnd");
   let duration = timeEnd - timeStart;
-  alert(duration);
   return duration;
 }
 function getData(version){
@@ -527,6 +538,134 @@ function submitOrder() {
   }
 }
 
+function nextPizzaTask() {
+  currentOrder = 0;
+  numOrderItems = 0;
+  console.log(currentTask);
+  document.getElementById("order-list").innerHTML = "";
+  document.getElementById("current-order-list").innerHTML = "";
+  for (const orderItem of orders[currentOrder]) {
+    const order = document.getElementById("order-list");
+    const itemNode = document.createElement("li");
+    const itemText = document.createTextNode(orderItem);
+    itemNode.appendChild(itemText);
+    order.appendChild(itemNode);
+  }
+  document.getElementById("nextTaskBtn").style.display = "none";
+
+  if (currentTask == 0) {
+    for (const item of document.getElementsByClassName(
+      "categories-container-1"
+    )) {
+      item.classList.add("categories-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-1")) {
+      item.classList.add("category-btn-2");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-1")) {
+      item.classList.add("items-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("item-1")) {
+      item.classList.add("item-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-1")) {
+      item.classList.add("submit-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-1")) {
+      item.classList.add("submit-btn-2");
+    }
+
+    for (const item of document.getElementsByClassName(
+      "categories-container-2"
+    )) {
+      item.classList.remove("categories-container-1");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-2")) {
+      item.classList.remove("category-btn-1");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-2")) {
+      item.classList.remove("items-container-1");
+    }
+
+    for (const item of document.getElementsByClassName("item-2")) {
+      item.classList.remove("item-1");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-2")) {
+      item.classList.remove("submit-container-1");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-2")) {
+      item.classList.remove("submit-btn-1");
+    }
+
+    currentTask = 1;
+  } else if (currentTask == 1) {
+    for (const item of document.getElementsByClassName(
+      "categories-container-2"
+    )) {
+      item.classList.add("categories-container-3");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-2")) {
+      item.classList.add("category-btn-3");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-2")) {
+      item.classList.add("items-container-3");
+    }
+
+    for (const item of document.getElementsByClassName("item-2")) {
+      item.classList.add("item-3");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-2")) {
+      item.classList.add("submit-container-3");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-2")) {
+      item.classList.add("submit-btn-3");
+    }
+
+    for (const item of document.getElementsByClassName(
+      "categories-container-3"
+    )) {
+      item.classList.remove("categories-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-3")) {
+      item.classList.remove("category-btn-2");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-3")) {
+      item.classList.remove("items-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("item-3")) {
+      item.classList.remove("item-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-3")) {
+      item.classList.remove("submit-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-3")) {
+      item.classList.remove("submit-btn-2");
+    }
+
+    currentTask = 2;
+  } else if (currentTask == 2) {
+    end();
+  }
+}
+
 function processConsentDetails() {
   researcherName = document.getElementById("researcherName").value;
   sessionNumber = document.getElementById("sessionNumber").value;
@@ -541,9 +680,9 @@ function processConsentDetails() {
     document.getElementById("needConsentMessage").style.display = "none";
   }
 
-  sessionStorage.setItem("Researcher_Name", researcherName);
-  sessionStorage.setItem("Session_Number", sessionNumber);
-  sessionStorage.setItem("Consented", consented);
+  sessionStorage.setItem("researcherName", researcherName);
+  sessionStorage.setItem("sessionNumber", sessionNumber);
+  sessionStorage.setItem("consented", consented);
 
-  window.location.href = "Intro.html";
+  window.location.href = "Prereading.html";
 }

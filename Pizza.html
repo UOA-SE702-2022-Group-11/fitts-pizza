@@ -11,77 +11,77 @@
     </header>
 
     <div class="pizza-main">
-      <div class="categories-container" onclick="categoryCLick()">
+      <div class="categories-container-1" onclick="categoryCLick()">
         <button
-          class="category-btn"
+          class="category-btn-1"
           id="base-category-btn"
           onclick="changeCategory('base')"
         >
           Pizza Base
         </button>
         <button
-          class="category-btn"
+          class="category-btn-1"
           id="protein-category-btn"
           onclick="changeCategory('protein')"
         >
           Protein
         </button>
         <button
-          class="category-btn"
+          class="category-btn-1"
           id="toppings-category-btn"
           onclick="changeCategory('toppings')"
         >
           Toppings
         </button>
         <button
-          class="category-btn"
+          class="category-btn-1"
           id="sauce-category-btn"
           onclick="changeCategory('sauce')"
         >
           Sauce
         </button>
       </div>
-      <div class="items-container" onclick="toppingClick()" id="base">
-        <button class="item" onclick="addItem('Small Base')">Small</button>
-        <button class="item" onclick="addItem('Large Base')">Large</button>
-        <button class="item" onclick="addItem('Thin Base')">Thin Base</button>
-        <button class="item" onclick="addItem('Gluten Free')">
+      <div class="items-container-1" onclick="toppingClick()" id="base">
+        <button class="item-1" onclick="addItem('Small Base')">Small</button>
+        <button class="item-1" onclick="addItem('Large Base')">Large</button>
+        <button class="item-1" onclick="addItem('Thin Base')">Thin Base</button>
+        <button class="item-1" onclick="addItem('Gluten Free')">
           Gluten Free
         </button>
       </div>
-      <div class="items-container" onclick="toppingClick()" id="protein">
-        <button class="item" onclick="addItem('Shrimp')">Shrimp</button>
-        <button class="item" onclick="addItem('Meatballs')">Meatball</button>
-        <button class="item" onclick="addItem('Chicken')">Chicken</button>
-        <button class="item" onclick="addItem('Pepperoni')">Pepperoni</button>
-        <button class="item" onclick="addItem('Tofu')">Tofu</button>
-        <button class="item" onclick="addItem('Quorn')">Quorn</button>
-        <button class="item" onclick="addItem('Bacon')">Bacon</button>
+      <div class="items-container-1" onclick="toppingClick()" id="protein">
+        <button class="item-1" onclick="addItem('Shrimp')">Shrimp</button>
+        <button class="item-1" onclick="addItem('Meatballs')">Meatball</button>
+        <button class="item-1" onclick="addItem('Chicken')">Chicken</button>
+        <button class="item-1" onclick="addItem('Pepperoni')">Pepperoni</button>
+        <button class="item-1" onclick="addItem('Tofu')">Tofu</button>
+        <button class="item-1" onclick="addItem('Quorn')">Quorn</button>
+        <button class="item-1" onclick="addItem('Bacon')">Bacon</button>
       </div>
-      <div class="items-container" onclick="toppingClick()" id="toppings">
-        <button class="item" onclick="addItem('Onion')">Onion</button>
-        <button class="item" onclick="addItem('Olive')">Olive</button>
-        <button class="item" onclick="addItem('Capers')">Capers</button>
-        <button class="item" onclick="addItem('Mushrooms')">Mushrooms</button>
-        <button class="item" onclick="addItem('Pickle')">Pickle</button>
-        <button class="item" onclick="addItem('Pineapple')">Pineapple</button>
-        <button class="item" onclick="addItem('Brie')">Brie</button>
-        <button class="item" onclick="addItem('Cheese')">Cheese</button>
-        <button class="item" onclick="addItem('Capsicum')">Capsicum</button>
+      <div class="items-container-1" onclick="toppingClick()" id="toppings">
+        <button class="item-1" onclick="addItem('Onion')">Onion</button>
+        <button class="item-1" onclick="addItem('Olive')">Olive</button>
+        <button class="item-1" onclick="addItem('Capers')">Capers</button>
+        <button class="item-1" onclick="addItem('Mushrooms')">Mushrooms</button>
+        <button class="item-1" onclick="addItem('Pickle')">Pickle</button>
+        <button class="item-1" onclick="addItem('Pineapple')">Pineapple</button>
+        <button class="item-1" onclick="addItem('Brie')">Brie</button>
+        <button class="item-1" onclick="addItem('Cheese')">Cheese</button>
+        <button class="item-1" onclick="addItem('Capsicum')">Capsicum</button>
       </div>
-      <div class="items-container" onclick="toppingClick()" id="sauce">
-        <button class="item" onclick="addItem('Tomato Sauce')">Tomato</button>
-        <button class="item" onclick="addItem('BBQ Sauce')">BBQ</button>
-        <button class="item" onclick="addItem('Garlic Mayo')">
+      <div class="items-container-1" onclick="toppingClick()" id="sauce">
+        <button class="item-1" onclick="addItem('Tomato Sauce')">Tomato</button>
+        <button class="item-1" onclick="addItem('BBQ Sauce')">BBQ</button>
+        <button class="item-1" onclick="addItem('Garlic Mayo')">
           Garlic Mayo
         </button>
-        <button class="item" onclick="addItem('Cranberry Sauce')">
+        <button class="item-1" onclick="addItem('Cranberry Sauce')">
           Cranberry Sauce
         </button>
-        <button class="item" onclick="addItem('Sweet Chilli')">
+        <button class="item-1" onclick="addItem('Sweet Chilli')">
           Sweet Chilli
         </button>
-        <button class="item" onclick="addItem('Aioli')">Aioli</button>
+        <button class="item-1" onclick="addItem('Aioli')">Aioli</button>
       </div>
       <div class="order-container">
         <div class="order">
@@ -114,8 +114,8 @@
             <div class="topping"></div>
           </div>
         </div>
-        <div class="submit-container">
-          <button class="submit-btn" onclick="submitOrder()">
+        <div class="submit-container-1">
+          <button class="submit-btn-1" onclick="submitOrder()">
             Submit Order
           </button>
         </div>
@@ -123,7 +123,7 @@
     </div>
 
     <footer>
-      <button class="nextButton" id="nextTaskBtn" onclick="end();   changeVersion(1); window.location.href = 'Results.html'; ">
+      <button class="nextButton" id="nextTaskBtn" onclick="end();   nextPizzaTask(); window.location.href = 'Results.html'; ">
         Next
       </button>
     </footer>
