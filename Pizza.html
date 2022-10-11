@@ -12,10 +12,34 @@
 
     <div class="pizza-main">
       <div class="categories-container">
-        <button class="category" onclick="changeCategory('base')">Pizza Base</button>
-        <button class="category" onclick="changeCategory('protein')">Protein</button>
-        <button class="category" onclick="changeCategory('toppings')">Toppings</button>
-        <button class="category" onclick="changeCategory('sauce')">Sauce</button>
+        <button
+          class="category-btn"
+          id="base-category-btn"
+          onclick="changeCategory('base')"
+        >
+          Pizza Base
+        </button>
+        <button
+          class="category-btn"
+          id="protein-category-btn"
+          onclick="changeCategory('protein')"
+        >
+          Protein
+        </button>
+        <button
+          class="category-btn"
+          id="toppings-category-btn"
+          onclick="changeCategory('toppings')"
+        >
+          Toppings
+        </button>
+        <button
+          class="category-btn"
+          id="sauce-category-btn"
+          onclick="changeCategory('sauce')"
+        >
+          Sauce
+        </button>
       </div>
       <div class="items-container" id="base">
         <button class="item" onclick="addItem('Thin')">Thin</button>
@@ -37,8 +61,8 @@
           <h2>Pizza Order</h2>
           <ol id="order-list">
             <li>Large Base</li>
-            <li>Medium Pepperoni</li>
-            <li>Medium Cheese</li>
+            <li>Pepperoni</li>
+            <li>Cheese</li>
             <li>Tomato Sauce</li>
           </ol>
         </div>

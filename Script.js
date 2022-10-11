@@ -60,42 +60,49 @@ function handleDownloadResults() {
 
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
-function addItem(item){
+function addItem(item) {
   goodClick();
   const order = document.getElementById("order-list");
   const itemNode = document.createElement("li");
   const itemText = document.createTextNode(item);
   itemNode.appendChild(itemText);
   order.appendChild(itemNode);
-
 }
-function changeCategory(categoryId){
+function changeCategory(categoryId) {
   goodClick();
   const containers = document.getElementsByClassName("items-container");
   for (const container of containers) {
-
     container.style.display = "none";
-
   }
-    document.getElementById(categoryId).style.display = "flex";
+
+  const categoryBtns = document.getElementsByClassName("category-btn");
+  for (const categoryBtn of categoryBtns) {
+    categoryBtn.style.backgroundColor = "whitesmoke";
+    categoryBtn.style.borderRadius = "0.2rem";
+    categoryBtn.style.borderWidth = "thin";
+  }
+
+  document.getElementById(categoryId).style.display = "flex";
+  document.getElementById(categoryId + "-category-btn").style.backgroundColor =
+    "palegreen";
 }
 let clicks = 0;
 let goodClicks = 0;
-function missclick(){
+function missclick() {
   clicks += 1;
   alert(clicks - goodClicks);
 }
-function goodClick(){
+function goodClick() {
   goodClicks += 1;
 }
 let timeStart = 0;
 let timeEnd = 0;
-function start(){
+function start() {
   timeStart = Date.now();
 }
-function end(){
+function end() {
   timeEnd = Date.now();
 }
-function getTimeSpan(){
-  return timeEnd-timeStart;
+function getTimeSpan() {
+  return timeEnd - timeStart;
 }

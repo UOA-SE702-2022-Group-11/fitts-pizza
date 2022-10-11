@@ -15,8 +15,12 @@
   background-color: cornsilk;
 }
 
-.category {
+.category-btn {
   padding: 1rem;
+}
+
+.category-btn:hover {
+  filter: brightness(90%);
 }
 
 .items-container {
@@ -101,4 +105,20 @@
   border-radius: 0.2rem;
   padding: 0.6rem;
   margin: 1rem 2rem;
+}
+
+#base-category-btn {
+  background-color: palegreen;
+  border-width: thin;
+  border-radius: 0.2rem;
+}
+
+#base {
+  display: flex;
+}
+
+#protein,
+#toppings,
+#sauce {
+  display: none;
 }
