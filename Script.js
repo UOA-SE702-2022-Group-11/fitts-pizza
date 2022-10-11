@@ -192,6 +192,12 @@ function navigateToQuestionnaireResultsPage() {
 }
 
 function handleDownloadResults() {
+  const sessionDetails = {
+    Researcher_Name: sessionStorage.getItem("researcherName"),
+    Session_Number: sessionStorage.getItem("sessionNumber"),
+    Consent_Obtained: sessionStorage.getItem("consented"),
+  }
+
   const compareContrastResults = {
     CC1: sessionStorage.getItem("compareContrast1"),
     CC2: sessionStorage.getItem("compareContrast2"),
@@ -224,6 +230,7 @@ function handleDownloadResults() {
   }
 
   const evaluationResults = {
+    SessionDetails: sessionDetails,
     CompareContrast: compareContrastResults,
     Ranking: rankingResults,
     Attitude: attitudeResults,
@@ -251,9 +258,9 @@ function processConsentDetails() {
 		document.getElementById("needConsentMessage").style.display = "none";
 	}
 
-	sessionStorage.setItem("Researcher_Name", researcherName);
-	sessionStorage.setItem("Session_Number", sessionNumber);
-	sessionStorage.setItem("Consented", consented);
+	sessionStorage.setItem("researcherName", researcherName);
+	sessionStorage.setItem("sessionNumber", sessionNumber);
+	sessionStorage.setItem("consented", consented);
 
 	window.location.href = "Intro.html";
 }
