@@ -11,7 +11,7 @@
     </header>
 
     <div class="pizza-main">
-      <div class="categories-container">
+      <div class="categories-container" onclick="categoryCLick()">
         <button
           class="category-btn"
           id="base-category-btn"
@@ -41,7 +41,7 @@
           Sauce
         </button>
       </div>
-      <div class="items-container" id="base">
+      <div class="items-container" onclick="toppingClick()" id="base">
         <button class="item" onclick="addItem('Small Base')">Small</button>
         <button class="item" onclick="addItem('Large Base')">Large</button>
         <button class="item" onclick="addItem('Thin Base')">Thin Base</button>
@@ -49,7 +49,7 @@
           Gluten Free
         </button>
       </div>
-      <div class="items-container" id="protein">
+      <div class="items-container" onclick="toppingClick()" id="protein">
         <button class="item" onclick="addItem('Shrimp')">Shrimp</button>
         <button class="item" onclick="addItem('Meatballs')">Meatball</button>
         <button class="item" onclick="addItem('Chicken')">Chicken</button>
@@ -58,7 +58,7 @@
         <button class="item" onclick="addItem('Quorn')">Quorn</button>
         <button class="item" onclick="addItem('Bacon')">Bacon</button>
       </div>
-      <div class="items-container" id="toppings">
+      <div class="items-container" onclick="toppingClick()" id="toppings">
         <button class="item" onclick="addItem('Onion')">Onion</button>
         <button class="item" onclick="addItem('Olive')">Olive</button>
         <button class="item" onclick="addItem('Capers')">Capers</button>
@@ -69,7 +69,7 @@
         <button class="item" onclick="addItem('Cheese')">Cheese</button>
         <button class="item" onclick="addItem('Capsicum')">Capsicum</button>
       </div>
-      <div class="items-container" id="sauce">
+      <div class="items-container" onclick="toppingClick()" id="sauce">
         <button class="item" onclick="addItem('Tomato Sauce')">Tomato</button>
         <button class="item" onclick="addItem('BBQ Sauce')">BBQ</button>
         <button class="item" onclick="addItem('Garlic Mayo')">
@@ -123,7 +123,7 @@
     </div>
 
     <footer>
-      <button class="nextButton" onclick="end(); ">
+      <button class="nextButton" id="nextTaskBtn" onclick="end(); ">
         Next
       </button>
     </footer>

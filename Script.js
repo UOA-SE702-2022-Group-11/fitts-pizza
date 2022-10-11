@@ -73,6 +73,9 @@ function dummyResults() {
   ];
   completionTime = [147, 170, 163];
 }
+function loadResults(){
+
+}
 
 function generateResults() {
   dummyResults();
@@ -341,11 +344,24 @@ function changeCategory(categoryId) {
     "palegreen";
 }
 let clicks = 0;
+let toppingClicks = 0;
+let categoryClicks = 0;
 let goodClicks = 0;
+
 function missclick() {
   clicks += 1
   localStorage.setItem("clicks", clicks)
   alert(clicks - goodClicks);
+}
+function toppingClick(){
+  toppingClicks += 1;
+  let toppingMissClicks = clicks - toppingClicks;
+  localStorage.setItem("toppingMissClicks", toppingMissClicks)
+}
+function categoryCLick(){
+  categoryClicks += 1;
+  let categoryMissClicks = clicks - toppingClicks;
+  localStorage.setItem("categoryMissClicks", categoryMissClicks)
 }
 function goodClick() {
   goodClicks += 1;
@@ -366,7 +382,7 @@ function end() {
   localStorage.setItem("timeEnd", timeEnd);
   alert(timeEnd);
   getClicks()
-  window.location.href = 'Test.html';
+  window.location.href = 'Results.html';
 }
 function showVariables() {
   alert('show')
@@ -384,11 +400,15 @@ function getData(){
   alert('test');
   let clicks = localStorage.getItem("clicks");
   let missClicks = localStorage.getItem("missClicks");
+  let toppingMissClicks = localStorage.getItem("toppingMissClicks");
+  let categoryMissClicks = localStorage.getItem("categoryMissClicks");
   duration = getTimeSpan()
   let data = {
     time : duration,
     clicks : clicks,
-    missClicks : missClicks
+    missClicks : missClicks,
+    toppingMissClicks : toppingMissClicks,
+    categoryMissClicks : categoryMissClicks
   }
   let dataString = JSON.stringify(data)
   alert(dataString)
