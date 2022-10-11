@@ -18,7 +18,7 @@ https://github.com/UOA-SE702-2022-Group-11/fitts-pizza
 1. Download the project by either:
    1. Cloning the repository by running the following command in a terminal `git clone https://github.com/UOA-SE702-2022-Group-11/fitts-pizza.git`
    2. Or download and unzip the folder
-2. Open the Intro.html page in a web browser
+2. Open the Consent.html page in a web browser
 3. Begin!
 
 ## Features
