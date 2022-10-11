@@ -1,20 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>Realistic</title>
-<link rel="stylesheet" href="Style.css">
-<script src="Script.js"></script>
-<body>
+  <meta charset="UTF-8" />
+  <title>Realistic</title>
+  <link rel="stylesheet" href="Style.css" />
+  <link rel="stylesheet" href="Pizza.css" />
+  <script src="Script.js"></script>
+  <body onclick="missclick()">
     <header>
-        <h1 class="title">Realistic Pizza task</h1>
+      <h1 class="title">Realistic Pizza task</h1>
     </header>
 
-    <div class="main">
-        <p>Main page content</p>
+    <div class="pizza-main">
+      <div class="categories-container-1" onclick="categoryCLick()">
+        <button
+          class="category-btn-1"
+          id="base-category-btn"
+          onclick="changeCategory('base')"
+        >
+          Pizza Base
+        </button>
+        <button
+          class="category-btn-1"
+          id="protein-category-btn"
+          onclick="changeCategory('protein')"
+        >
+          Protein
+        </button>
+        <button
+          class="category-btn-1"
+          id="toppings-category-btn"
+          onclick="changeCategory('toppings')"
+        >
+          Toppings
+        </button>
+        <button
+          class="category-btn-1"
+          id="sauce-category-btn"
+          onclick="changeCategory('sauce')"
+        >
+          Sauce
+        </button>
+      </div>
+      <div class="items-container-1" onclick="toppingClick()" id="base">
+        <button class="item-1" onclick="addItem('Small Base')">Small</button>
+        <button class="item-1" onclick="addItem('Large Base')">Large</button>
+        <button class="item-1" onclick="addItem('Thin Base')">Thin Base</button>
+        <button class="item-1" onclick="addItem('Gluten Free')">
+          Gluten Free
+        </button>
+      </div>
+      <div class="items-container-1" onclick="toppingClick()" id="protein">
+        <button class="item-1" onclick="addItem('Shrimp')">Shrimp</button>
+        <button class="item-1" onclick="addItem('Meatballs')">Meatball</button>
+        <button class="item-1" onclick="addItem('Chicken')">Chicken</button>
+        <button class="item-1" onclick="addItem('Pepperoni')">Pepperoni</button>
+        <button class="item-1" onclick="addItem('Tofu')">Tofu</button>
+        <button class="item-1" onclick="addItem('Quorn')">Quorn</button>
+        <button class="item-1" onclick="addItem('Bacon')">Bacon</button>
+      </div>
+      <div class="items-container-1" onclick="toppingClick()" id="toppings">
+        <button class="item-1" onclick="addItem('Onion')">Onion</button>
+        <button class="item-1" onclick="addItem('Olive')">Olive</button>
+        <button class="item-1" onclick="addItem('Capers')">Capers</button>
+        <button class="item-1" onclick="addItem('Mushrooms')">Mushrooms</button>
+        <button class="item-1" onclick="addItem('Pickle')">Pickle</button>
+        <button class="item-1" onclick="addItem('Pineapple')">Pineapple</button>
+        <button class="item-1" onclick="addItem('Brie')">Brie</button>
+        <button class="item-1" onclick="addItem('Cheese')">Cheese</button>
+        <button class="item-1" onclick="addItem('Capsicum')">Capsicum</button>
+      </div>
+      <div class="items-container-1" onclick="toppingClick()" id="sauce">
+        <button class="item-1" onclick="addItem('Tomato Sauce')">Tomato</button>
+        <button class="item-1" onclick="addItem('BBQ Sauce')">BBQ</button>
+        <button class="item-1" onclick="addItem('Garlic Mayo')">
+          Garlic Mayo
+        </button>
+        <button class="item-1" onclick="addItem('Cranberry Sauce')">
+          Cranberry Sauce
+        </button>
+        <button class="item-1" onclick="addItem('Sweet Chilli')">
+          Sweet Chilli
+        </button>
+        <button class="item-1" onclick="addItem('Aioli')">Aioli</button>
+      </div>
+      <div class="order-container">
+        <div class="order">
+          <h2>Pizza Order</h2>
+          <ol id="order-list">
+            <li>Thin Base</li>
+            <li>Pepperoni</li>
+            <li>Cheese</li>
+            <li>Tomato Sauce</li>
+          </ol>
+          <h2>Current Order</h2>
+          <ol id="current-order-list"></ol>
+        </div>
+        <div class="pizza">
+          <div class="sauce">
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+            <div class="topping"></div>
+          </div>
+        </div>
+        <div class="submit-container-1">
+          <button class="submit-btn-1" onclick="submitOrder()">
+            Submit Order
+          </button>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <button class="nextButton" onclick="location.href = 'Results.html';">Next</button>
+      <button class="nextButton" id="nextTaskBtn" onclick="nextPizzaTask();">
+        Next
+      </button>
     </footer>
-</body>
+  </body>
 </html>
