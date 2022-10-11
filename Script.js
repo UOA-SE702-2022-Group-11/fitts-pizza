@@ -73,9 +73,7 @@ function dummyResults() {
   ];
   completionTime = [147, 170, 163];
 }
-function loadResults(){
-
-}
+function loadResults() {}
 
 function generateResults() {
   dummyResults();
@@ -248,6 +246,12 @@ function navigateToQuestionnaireResultsPage() {
 }
 
 function handleDownloadResults() {
+  const sessionDetails = {
+    Researcher_Name: sessionStorage.getItem("researcherName"),
+    Session_Number: sessionStorage.getItem("sessionNumber"),
+    Consent_Obtained: sessionStorage.getItem("consented"),
+  };
+
   const compareContrastResults = {
     CC1: sessionStorage.getItem("compareContrast1"),
     CC2: sessionStorage.getItem("compareContrast2"),
@@ -280,6 +284,7 @@ function handleDownloadResults() {
   };
 
   const evaluationResults = {
+    SessionDetails: sessionDetails,
     CompareContrast: compareContrastResults,
     Ranking: rankingResults,
     Attitude: attitudeResults,
@@ -349,24 +354,24 @@ let categoryClicks = 0;
 let goodClicks = 0;
 
 function missclick() {
-  clicks += 1
-  localStorage.setItem("clicks", clicks)
+  clicks += 1;
+  localStorage.setItem("clicks", clicks);
   alert(clicks - goodClicks);
 }
-function toppingClick(){
+function toppingClick() {
   toppingClicks += 1;
   let toppingMissClicks = clicks - toppingClicks;
-  localStorage.setItem("toppingMissClicks", toppingMissClicks)
+  localStorage.setItem("toppingMissClicks", toppingMissClicks);
 }
-function categoryCLick(){
+function categoryCLick() {
   categoryClicks += 1;
   let categoryMissClicks = clicks - toppingClicks;
-  localStorage.setItem("categoryMissClicks", categoryMissClicks)
+  localStorage.setItem("categoryMissClicks", categoryMissClicks);
 }
 function goodClick() {
   goodClicks += 1;
 }
-function getClicks(){
+function getClicks() {
   let missClicks = clicks - goodClicks;
   localStorage.setItem("missClicks", missClicks);
   return missClicks;
@@ -375,17 +380,17 @@ function start() {
   let timeStart = Date.now();
   localStorage.setItem("timeStart", timeStart);
   alert(timeStart);
-  window.location.href = 'Pizza.html';
+  window.location.href = "Pizza.html";
 }
 function end() {
   let timeEnd = Date.now();
   localStorage.setItem("timeEnd", timeEnd);
   alert(timeEnd);
-  getClicks()
-  window.location.href = 'Results.html';
+  getClicks();
+  window.location.href = "Results.html";
 }
 function showVariables() {
-  alert('show')
+  alert("show");
   let output = localStorage.getItem("timeStart");
   alert(output);
 }
@@ -396,26 +401,26 @@ function getTimeSpan() {
   alert(duration);
   return duration;
 }
-function getData(){
-  alert('test');
+function getData() {
+  alert("test");
   let clicks = localStorage.getItem("clicks");
   let missClicks = localStorage.getItem("missClicks");
   let toppingMissClicks = localStorage.getItem("toppingMissClicks");
   let categoryMissClicks = localStorage.getItem("categoryMissClicks");
-  duration = getTimeSpan()
+  duration = getTimeSpan();
   let data = {
-    time : duration,
-    clicks : clicks,
-    missClicks : missClicks,
-    toppingMissClicks : toppingMissClicks,
-    categoryMissClicks : categoryMissClicks
-  }
-  let dataString = JSON.stringify(data)
-  alert(dataString)
+    time: duration,
+    clicks: clicks,
+    missClicks: missClicks,
+    toppingMissClicks: toppingMissClicks,
+    categoryMissClicks: categoryMissClicks,
+  };
+  let dataString = JSON.stringify(data);
+  alert(dataString);
   var a = document.createElement("a");
-  var file = new Blob([dataString], {type: 'text/plain'});
+  var file = new Blob([dataString], { type: "text/plain" });
   a.href = URL.createObjectURL(file);
-  a.download = 'data.js';
+  a.download = "data.js";
   a.click();
 }
 
@@ -487,9 +492,9 @@ function processConsentDetails() {
     document.getElementById("needConsentMessage").style.display = "none";
   }
 
-  sessionStorage.setItem("Researcher_Name", researcherName);
-  sessionStorage.setItem("Session_Number", sessionNumber);
-  sessionStorage.setItem("Consented", consented);
+  sessionStorage.setItem("researcherName", researcherName);
+  sessionStorage.setItem("sessionNumber", sessionNumber);
+  sessionStorage.setItem("consented", consented);
 
-  window.location.href = "Intro.html";
+  window.location.href = "Prereading.html";
 }
