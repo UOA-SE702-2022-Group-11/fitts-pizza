@@ -185,10 +185,16 @@ function navigateToQuestionnaireResultsPage() {
 
   if (preTestComplete === "false") {
     sessionStorage.setItem("Pre-Test Complete", "true");
+    sessionStorage.setItem("pre-Test Results", "false");
     window.location.href="pretestQuestionnaireResults.html";
   } else {
     window.location.href="posttestQuestionnaireResults.html";
   }
+}
+
+function navigateToActivityChoicePage() {
+  sessionStorage.setItem("pre-Test Results", "true");
+  window.location.href = '../Choice.html';
 }
 
 function handleDownloadResults() {
@@ -240,6 +246,19 @@ function handleDownloadResults() {
   const blob = new Blob([JSON.stringify(evaluationResults)], {
     type: "application/json",
   });
+
+  let preTestComplete = sessionStorage.getItem("pre-Test Results");
+  let resultsDownloadName = "";
+
+  if (preTestComplete === "false") {
+    resultsDownloadName = "Pre-test_Evaluation_Results_"
+  } else {
+    resultsDownloadName = "Post-test_Evaluation_Results_"
+  }
+
+  if (sessionDetails.Researcher_Name != "" && sessionDetails.Session_Number != "") {
+    document.getElementById("blob").setAttribute("download", `${resultsDownloadName}${sessionDetails.Researcher_Name}_${sessionDetails.Session_Number}`);
+  }
 
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
