@@ -298,6 +298,7 @@ function handleDownloadResults() {
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
 let numOrderItems = 0;
+let currentTask = 0;
 
 function addItem(item) {
   goodClick();
@@ -332,12 +333,16 @@ function addItem(item) {
 }
 function changeCategory(categoryId) {
   goodClick();
-  const containers = document.getElementsByClassName("items-container");
+  const containers = document.getElementsByClassName(
+    "items-container-" + (currentTask + 1)
+  );
   for (const container of containers) {
     container.style.display = "none";
   }
 
-  const categoryBtns = document.getElementsByClassName("category-btn");
+  const categoryBtns = document.getElementsByClassName(
+    "category-btn-" + (currentTask + 1)
+  );
   for (const categoryBtn of categoryBtns) {
     categoryBtn.style.backgroundColor = "whitesmoke";
     categoryBtn.style.borderRadius = "0.2rem";
@@ -356,7 +361,6 @@ let goodClicks = 0;
 function missclick() {
   clicks += 1;
   localStorage.setItem("clicks", clicks);
-  alert(clicks - goodClicks);
 }
 function toppingClick() {
   toppingClicks += 1;
@@ -379,30 +383,24 @@ function getClicks() {
 function start() {
   let timeStart = Date.now();
   localStorage.setItem("timeStart", timeStart);
-  alert(timeStart);
   window.location.href = "Pizza.html";
 }
 function end() {
   let timeEnd = Date.now();
   localStorage.setItem("timeEnd", timeEnd);
-  alert(timeEnd);
   getClicks();
   window.location.href = "Results.html";
 }
 function showVariables() {
-  alert("show");
   let output = localStorage.getItem("timeStart");
-  alert(output);
 }
 function getTimeSpan() {
   let timeStart = localStorage.getItem("timeStart");
   let timeEnd = localStorage.getItem("timeEnd");
   let duration = timeEnd - timeStart;
-  alert(duration);
   return duration;
 }
 function getData() {
-  alert("test");
   let clicks = localStorage.getItem("clicks");
   let missClicks = localStorage.getItem("missClicks");
   let toppingMissClicks = localStorage.getItem("toppingMissClicks");
@@ -416,7 +414,6 @@ function getData() {
     categoryMissClicks: categoryMissClicks,
   };
   let dataString = JSON.stringify(data);
-  alert(dataString);
   var a = document.createElement("a");
   var file = new Blob([dataString], { type: "text/plain" });
   a.href = URL.createObjectURL(file);
@@ -475,6 +472,134 @@ function submitOrder() {
     }
   } else {
     alert("Sorry, but this order is not quite right. Keep trying.");
+  }
+}
+
+function nextPizzaTask() {
+  currentOrder = 0;
+  numOrderItems = 0;
+  console.log(currentTask);
+  document.getElementById("order-list").innerHTML = "";
+  document.getElementById("current-order-list").innerHTML = "";
+  for (const orderItem of orders[currentOrder]) {
+    const order = document.getElementById("order-list");
+    const itemNode = document.createElement("li");
+    const itemText = document.createTextNode(orderItem);
+    itemNode.appendChild(itemText);
+    order.appendChild(itemNode);
+  }
+  document.getElementById("nextTaskBtn").style.display = "none";
+
+  if (currentTask == 0) {
+    for (const item of document.getElementsByClassName(
+      "categories-container-1"
+    )) {
+      item.classList.add("categories-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-1")) {
+      item.classList.add("category-btn-2");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-1")) {
+      item.classList.add("items-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("item-1")) {
+      item.classList.add("item-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-1")) {
+      item.classList.add("submit-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-1")) {
+      item.classList.add("submit-btn-2");
+    }
+
+    for (const item of document.getElementsByClassName(
+      "categories-container-2"
+    )) {
+      item.classList.remove("categories-container-1");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-2")) {
+      item.classList.remove("category-btn-1");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-2")) {
+      item.classList.remove("items-container-1");
+    }
+
+    for (const item of document.getElementsByClassName("item-2")) {
+      item.classList.remove("item-1");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-2")) {
+      item.classList.remove("submit-container-1");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-2")) {
+      item.classList.remove("submit-btn-1");
+    }
+
+    currentTask = 1;
+  } else if (currentTask == 1) {
+    for (const item of document.getElementsByClassName(
+      "categories-container-2"
+    )) {
+      item.classList.add("categories-container-3");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-2")) {
+      item.classList.add("category-btn-3");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-2")) {
+      item.classList.add("items-container-3");
+    }
+
+    for (const item of document.getElementsByClassName("item-2")) {
+      item.classList.add("item-3");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-2")) {
+      item.classList.add("submit-container-3");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-2")) {
+      item.classList.add("submit-btn-3");
+    }
+
+    for (const item of document.getElementsByClassName(
+      "categories-container-3"
+    )) {
+      item.classList.remove("categories-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("category-btn-3")) {
+      item.classList.remove("category-btn-2");
+    }
+
+    for (const item of document.getElementsByClassName("items-container-3")) {
+      item.classList.remove("items-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("item-3")) {
+      item.classList.remove("item-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-container-3")) {
+      item.classList.remove("submit-container-2");
+    }
+
+    for (const item of document.getElementsByClassName("submit-btn-3")) {
+      item.classList.remove("submit-btn-2");
+    }
+
+    currentTask = 2;
+  } else if (currentTask == 2) {
+    end();
   }
 }
 
