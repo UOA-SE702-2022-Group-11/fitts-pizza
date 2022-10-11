@@ -480,7 +480,7 @@ function getData(version) {
   let missClicks = sessionStorage.getItem("missClicks");
   let toppingMissClicks = sessionStorage.getItem("toppingMissClicks");
   let categoryMissClicks = sessionStorage.getItem("categoryMissClicks");
-  duration = getTimeSpan();
+  let duration = getTimeSpan();
   let data = {
     time: duration,
     clicks: clicks,
@@ -569,6 +569,7 @@ function submitOrder() {
 function nextPizzaTask() {
   end();
   changeVersion(currentTask + 1);
+  start();
   currentOrder = 0;
   numOrderItems = 0;
   console.log(currentTask);
