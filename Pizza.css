@@ -122,3 +122,8 @@
 #sauce {
   display: none;
 }
+
+.remove-btn {
+  color: red;
+  margin-left: 2rem;
+}
