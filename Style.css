@@ -189,3 +189,22 @@ select {
   display: none;
   margin-left: 15%;
 }
+
+.radioHolder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.radioInput {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*A hight is required to make the radio buttons clickable within the entire td (Theory page)*/ 
+td {
+    height: 1px; 
+}

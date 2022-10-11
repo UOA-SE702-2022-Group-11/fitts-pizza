@@ -73,8 +73,7 @@ function dummyResults() {
   ];
   completionTime = [147, 170, 163];
 }
-function loadResults(){
-
+function loadResults() {
   clicksTotal = [];
   misClicks = [];
   completionTime = [];
@@ -90,7 +89,6 @@ function loadResults(){
   catMisClicks += data1.categoryMissClicks;
   topMisClicks += data1.toppingMissClicks;
   completionTime.push(data1.time);
-
 
   let dataString2 = window.sessionStorage.getItem("data2");
   let data2 = JSON.parse(dataString2);
@@ -111,10 +109,10 @@ function loadResults(){
   completionTime.push(data3.time);
 
   misClicks = [
-      [data1.missClicks, "task1"],
-      [data2.missClicks, "task2"],
-      [data3.missClicks, "task3"],
-  ]
+    [data1.missClicks, "task1"],
+    [data2.missClicks, "task2"],
+    [data3.missClicks, "task3"],
+  ];
 }
 
 function generateResults() {
@@ -281,10 +279,16 @@ function navigateToQuestionnaireResultsPage() {
 
   if (preTestComplete === "false") {
     sessionStorage.setItem("Pre-Test Complete", "true");
+    sessionStorage.setItem("pre-Test Results", "false");
     window.location.href = "pretestQuestionnaireResults.html";
   } else {
     window.location.href = "posttestQuestionnaireResults.html";
   }
+}
+
+function navigateToActivityChoicePage() {
+  sessionStorage.setItem("pre-Test Results", "true");
+  window.location.href = "../Choice.html";
 }
 
 function handleDownloadResults() {
@@ -336,6 +340,27 @@ function handleDownloadResults() {
   const blob = new Blob([JSON.stringify(evaluationResults)], {
     type: "application/json",
   });
+
+  let preTestComplete = sessionStorage.getItem("pre-Test Results");
+  let resultsDownloadName = "";
+
+  if (preTestComplete === "false") {
+    resultsDownloadName = "Pre-test_Evaluation_Results_";
+  } else {
+    resultsDownloadName = "Post-test_Evaluation_Results_";
+  }
+
+  if (
+    sessionDetails.Researcher_Name != "" &&
+    sessionDetails.Session_Number != ""
+  ) {
+    document
+      .getElementById("blob")
+      .setAttribute(
+        "download",
+        `${resultsDownloadName}${sessionDetails.Researcher_Name}_${sessionDetails.Session_Number}`
+      );
+  }
 
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
@@ -398,7 +423,7 @@ function changeCategory(categoryId) {
 let timeStart = 0;
 let timeEnd = 0;
 let clicks = 0;
-let toppingClicks = 0
+let toppingClicks = 0;
 let goodTopClicks = 0;
 let categoryClicks = 0;
 let goodCatClicks = 0;
@@ -406,23 +431,23 @@ let goodClicks = 0;
 
 function missclick() {
   clicks += 1;
-  sessionStorage.setItem("clicks", clicks)
+  sessionStorage.setItem("clicks", clicks);
 }
-function toppingClick(){
+function toppingClick() {
   toppingClicks += 1;
-  let toppingMissClicks = toppingClicks-goodTopClicks;
-  sessionStorage.setItem("toppingMissClicks", toppingMissClicks)
+  let toppingMissClicks = toppingClicks - goodTopClicks;
+  sessionStorage.setItem("toppingMissClicks", toppingMissClicks);
 }
-function goodTopClick(){
+function goodTopClick() {
   goodClick();
   goodTopClicks += 1;
 }
-function categoryCLick(){
+function categoryCLick() {
   categoryClicks += 1;
-  let categoryMissClicks = categoryClicks-goodCatClicks;
-  sessionStorage.setItem("categoryMissClicks", categoryMissClicks)
+  let categoryMissClicks = categoryClicks - goodCatClicks;
+  sessionStorage.setItem("categoryMissClicks", categoryMissClicks);
 }
-function goodCatClick(){
+function goodCatClick() {
   goodClick();
   goodCatClicks += 1;
 }
@@ -441,7 +466,7 @@ function start() {
 function end() {
   timeEnd = new Date().getTime() / 1000;
   sessionStorage.setItem("timeEnd", timeEnd);
-  getClicks()
+  getClicks();
 }
 function getTimeSpan() {
   let timeStart = sessionStorage.getItem("timeStart");
@@ -449,31 +474,31 @@ function getTimeSpan() {
   let duration = timeEnd - timeStart;
   return duration;
 }
-function getData(version){
+function getData(version) {
   getClicks();
   let clicks = sessionStorage.getItem("clicks");
   let missClicks = sessionStorage.getItem("missClicks");
   let toppingMissClicks = sessionStorage.getItem("toppingMissClicks");
   let categoryMissClicks = sessionStorage.getItem("categoryMissClicks");
-  duration = getTimeSpan()
+  duration = getTimeSpan();
   let data = {
-    time : duration,
-    clicks : clicks,
-    missClicks : missClicks,
-    toppingMissClicks : toppingMissClicks,
-    categoryMissClicks : categoryMissClicks
-  }
-  let dataString = JSON.stringify(data)
-  sessionStorage.setItem("data"+version, dataString)
+    time: duration,
+    clicks: clicks,
+    missClicks: missClicks,
+    toppingMissClicks: toppingMissClicks,
+    categoryMissClicks: categoryMissClicks,
+  };
+  let dataString = JSON.stringify(data);
+  sessionStorage.setItem("data" + version, dataString);
 
   var a = document.createElement("a");
-  var file = new Blob([dataString], {type: 'text/plain'});
+  var file = new Blob([dataString], { type: "text/plain" });
   a.href = URL.createObjectURL(file);
-  a.download = "data"+version+".js";
+  a.download = "data" + version + ".js";
   a.click();
 }
-function changeVersion(version){
-  getData(version)
+function changeVersion(version) {
+  getData(version);
   clicks = 0;
   toppingClicks = 0;
   goodTopClicks = 0;
@@ -486,7 +511,6 @@ function changeVersion(version){
   sessionStorage.setItem("toppingMissClicks", 0);
   sessionStorage.setItem("categoryMissClicks", 0);
   sessionStorage.setItem("missClicks", 0);
-
 }
 
 let currentOrder = 0;
@@ -544,7 +568,7 @@ function submitOrder() {
 }
 function nextPizzaTask() {
   end();
-  changeVersion(currentTask+1)
+  changeVersion(currentTask + 1);
   currentOrder = 0;
   numOrderItems = 0;
   console.log(currentTask);
