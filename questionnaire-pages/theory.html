@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Fitts' Law Theory Questionnaire</title>
+<link rel="stylesheet" href="../Style.css">
+<script src="../Script.js"></script>
+<body>
+    <header>
+        <h1 class="title">Fitts' Law Theory Evaluation</h1>
+    </header>
+
+    <div class="instructions">
+        <p>
+            Please answer the following multiple-choice questions regarding Fitts' Law.
+        </p>
+        <p>
+            There is only <b>1</b> correct answer per question.
+        </p>
+    </div>
+
+    <form class="questionnaire">
+        <p>
+            <b>1. </b>What does Fitts' Law describe?
+        </p>
+        <table>
+            <tr>
+                <td><input type="radio" id="T-q1-o1" name="Q1" value="a"></td>
+                <td><label for="T-q1-o1">The grouping of elements to create impressions of cohesion</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q1-o2" name="Q1" value="b"></td>
+                <td><label for="T-q1-o2">The need for high colour contrasts for readability</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q1-o3" name="Q1" value="c"></td>
+                <td><label for="T-q1-o3">The time required to move to a target, relative to the target's size and distance</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q1-o4" name="Q1" value="d"></td>
+                <td><label for="T-q1-o4">The importance assigned to elements by users based on their size</label></td>
+            </tr>
+        </table>
+        <br>
+        <p>
+            <b>2. </b>Will a good Fitts' law design for a computer screen also be a good Fitts' law design for touchscreen, even if they 
+            do not have the exact same movement time when interacting with the design?
+        </p>
+        <table>
+            <tr>
+                <td><input type="radio" id="T-q2-o1" name="Q2" value="a"></td>
+                <td><label for="T-q2-o1">Yes</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q2-o2" name="Q2" value="b"></td>
+                <td><label for="T-q2-o2">No</label></td>
+            </tr>
+        </table>
+        <br>
+        <p>
+            <b>3. </b>Considering Fitts' Law, rank the efficiency of these menus from best to worst:
+            <br>
+            <img src="theoryImages/menuOptions.PNG" alt="Linear, Rectangular, and Pie menu options">
+        </p>
+        <table>
+            <tr>
+                <td><input type="radio" id="T-q3-o1" name="Q3" value="a"></td>
+                <td><label for="T-q3-o1">Linear, Rectangular, Pie</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q3-o2" name="Q3" value="b"></td>
+                <td><label for="T-q3-o2">Rectangular, Linear, Pie</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q3-o3" name="Q3" value="c"></td>
+                <td><label for="T-q3-o3">Pie, Linear, Rectangular</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q3-o4" name="Q3" value="d"></td>
+                <td><label for="T-q3-o4">Pie, Rectangular, Linear</label></td>
+            </tr>
+        </table>
+        <br>
+        <p>
+            <b>4. </b>Using the image below, which of these statements is NOT true:
+            <br>
+            <img src="theoryImages/distanceTarget.PNG" alt="Different sized targets with different distances from cursor">
+        </p>
+        <table>
+            <tr>
+                <td><input type="radio" id="T-q4-o1" name="Q4" value="a"></td>
+                <td><label for="T-q4-o1">Target C will be reached in the same time as target A</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q4-o2" name="Q4" value="b"></td>
+                <td><label for="T-q4-o2">Target B will take longer to reach than target A</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q4-o3" name="Q4" value="c"></td>
+                <td><label for="T-q4-o3">Target B and C could take the same amount of time to reach, depending on D1 and D2</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q4-o4" name="Q4" value="d"></td>
+                <td><label for="T-q4-o4">Target A takes the shortest amount of time to reach</label></td>
+            </tr>
+        </table>
+        <br>
+        <p>
+            <b>5. </b>Which of the following is true about these scrollbars?
+            <br>
+            <img src="theoryImages/scrollbars.PNG" alt="OSX and Windows scrollbars">
+        </p>
+        <table>
+            <tr>
+                <td><input type="radio" id="T-q5-o1" name="Q5" value="a"></td>
+                <td><label for="T-q5-o1">Both scrollbars are equally efficient</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q5-o2" name="Q5" value="b"></td>
+                <td><label for="T-q5-o2">The OSX scrollbar is more efficient than the Windows scrollbar</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q5-o3" name="Q5" value="c"></td>
+                <td><label for="T-q5-o3">The Windows scrollbar is more efficient than the OSX scrollbar</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="T-q5-o4" name="Q5" value="d"></td>
+                <td><label for="T-q5-o4">The OSX scrollbar is less efficient than the Windows scrollbar</label></td>
+            </tr>
+        </table>
+    </form>
+
+    <p class="errorMessage" id="theoryQuestionsIncompleteMessage">
+        You have not answered all questions. All questions must be answered.
+    </p>
+
+    <footer>
+        <button class="nextButton" onclick="saveTheoryAnswersData();">Next</button>
+    </footer>
+</body>
+</html>
