@@ -42,29 +42,58 @@
         </button>
       </div>
       <div class="items-container" id="base">
-        <button class="item" onclick="addItem('Thin')">Thin</button>
-        <button class="item" onclick="addItem('Thick')">Thick</button>
+        <button class="item" onclick="addItem('Small')">Small</button>
+        <button class="item" onclick="addItem('Large')">Large</button>
+        <button class="item" onclick="addItem('Thin Base')">Thin Base</button>
+        <button class="item" onclick="addItem('Gluten Free')">
+          Gluten Free
+        </button>
       </div>
       <div class="items-container" id="protein">
-        <button class="item" onclick="addItem('Sausage')">Sausage</button>
-        <button class="item" onclick="addItem('Meatball')">Meatball</button>
+        <button class="item" onclick="addItem('Shrimp')">Shrimp</button>
+        <button class="item" onclick="addItem('Meatballs')">Meatball</button>
+        <button class="item" onclick="addItem('Chicken')">Chicken</button>
+        <button class="item" onclick="addItem('Pepperoni')">Pepperoni</button>
+        <button class="item" onclick="addItem('Tofu')">Tofu</button>
+        <button class="item" onclick="addItem('Quorn')">Quorn</button>
+        <button class="item" onclick="addItem('Bacon')">Bacon</button>
       </div>
       <div class="items-container" id="toppings">
         <button class="item" onclick="addItem('Onion')">Onion</button>
         <button class="item" onclick="addItem('Olive')">Olive</button>
+        <button class="item" onclick="addItem('Capers')">Capers</button>
+        <button class="item" onclick="addItem('Mushrooms')">Mushrooms</button>
+        <button class="item" onclick="addItem('Pickle')">Pickle</button>
+        <button class="item" onclick="addItem('Pineapple')">Pineapple</button>
+        <button class="item" onclick="addItem('Brie')">Brie</button>
+        <button class="item" onclick="addItem('Cheese')">Cheese</button>
+        <button class="item" onclick="addItem('Capsicum')">Capsicum</button>
       </div>
       <div class="items-container" id="sauce">
-        <button class="item" onclick="addItem('Tomato')">Tomato</button>
+        <button class="item" onclick="addItem('Tomato Sauce')">Tomato</button>
+        <button class="item" onclick="addItem('BBQ Sauce')">BBQ</button>
+        <button class="item" onclick="addItem('Garlic Mayo')">
+          Garlic Mayo
+        </button>
+        <button class="item" onclick="addItem('Cranberry Sauce')">
+          Cranberry Sauce
+        </button>
+        <button class="item" onclick="addItem('Sweet Chilli')">
+          Sweet Chilli
+        </button>
+        <button class="item" onclick="addItem('Aioli')">Aioli</button>
       </div>
       <div class="order-container">
         <div class="order">
           <h2>Pizza Order</h2>
           <ol id="order-list">
-            <li>Large Base</li>
+            <li>Thin Base</li>
             <li>Pepperoni</li>
             <li>Cheese</li>
             <li>Tomato Sauce</li>
           </ol>
+          <h2>Current Order</h2>
+          <ol id="current-order-list"></ol>
         </div>
         <div class="pizza">
           <div class="sauce">
@@ -86,7 +115,9 @@
           </div>
         </div>
         <div class="submit-container">
-          <button class="submit-btn">Submit Order</button>
+          <button class="submit-btn" onclick="submitOrder()">
+            Submit Order
+          </button>
         </div>
       </div>
     </div>

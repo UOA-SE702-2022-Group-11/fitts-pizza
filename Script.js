@@ -62,7 +62,16 @@ function handleDownloadResults() {
 }
 function addItem(item) {
   goodClick();
-  const order = document.getElementById("order-list");
+  const order = document.getElementById("current-order-list");
+
+  const checkedItems = new Set();
+  for (const orderItem of order.children) {
+    checkedItems.add(orderItem.textContent);
+  }
+  if (checkedItems.has(item)) {
+    return false;
+  }
+
   const itemNode = document.createElement("li");
   const itemText = document.createTextNode(item);
   itemNode.appendChild(itemText);
@@ -105,4 +114,56 @@ function end() {
 }
 function getTimeSpan() {
   return timeEnd - timeStart;
+}
+
+let currentOrder = 0;
+
+const orders = [
+  ["Thin Base", "Pepperoni", "Cheese", "Tomato Sauce"],
+  ["Large Base", "Bacon", "Pepperoni", "Chicken", "Cheese", "BBQ Sauce"],
+  ["Small Base", "Chicken", "Brie", "Cranberry Sauce"],
+];
+
+function checkOrder() {
+  let correctItemCount = 0;
+
+  const currentOrderItems =
+    document.getElementById("current-order-list").children;
+
+  if (currentOrderItems.length !== orders[currentOrder].length) {
+    return false;
+  }
+  const checkedItems = new Set();
+
+  for (const currentOrderItem of currentOrderItems) {
+    for (const orderItem of orders[currentOrder]) {
+      if (!checkedItems.has(currentOrderItem.textContent)) {
+        checkedItems.add(currentOrderItem.textContent);
+        if (orderItem === currentOrderItem.textContent) {
+          correctItemCount++;
+        }
+      }
+    }
+  }
+
+  return correctItemCount === orders[currentOrder].length;
+}
+
+function submitOrder() {
+  goodClick();
+  if (checkOrder()) {
+    currentOrder++;
+    document.getElementById("order-list").innerHTML = "";
+    document.getElementById("current-order-list").innerHTML = "";
+    for (const orderItem of orders[currentOrder]) {
+      const order = document.getElementById("order-list");
+      const itemNode = document.createElement("li");
+      const itemText = document.createTextNode(orderItem);
+      itemNode.appendChild(itemText);
+      order.appendChild(itemNode);
+    }
+    alert("Good job, let's move on to the next order.");
+  } else {
+    alert("Sorry, but this order is not quite right. Keep trying.");
+  }
 }
