@@ -108,12 +108,12 @@ function loadResults(){
   totMisClicks += data3.missClicks;
   catMisClicks += data3.categoryMissClicks;
   topMisClicks += data3.toppingMissClicks;
-  completionTime.push(data1.time);
+  completionTime.push(data3.time);
 
   misClicks = [
-      [totMisClicks, ""],
-      [catMisClicks, "Pizza select"],
-      [topMisClicks, "Toppings select"],
+      [data1.missClicks, "task1"],
+      [data2.missClicks, "task2"],
+      [data3.missClicks, "task3"],
   ]
 }
 
@@ -435,11 +435,11 @@ function getClicks() {
   return missClicks;
 }
 function start() {
-  timeStart = Date.now();
+  timeStart = new Date().getTime() / 1000;
   sessionStorage.setItem("timeStart", timeStart);
 }
 function end() {
-  timeEnd = Date.now();
+  timeEnd = new Date().getTime() / 1000;
   sessionStorage.setItem("timeEnd", timeEnd);
   getClicks()
 }
@@ -543,7 +543,6 @@ function submitOrder() {
   }
 }
 function nextPizzaTask() {
-  goodClick();
   end();
   changeVersion(currentTask+1)
   currentOrder = 0;
