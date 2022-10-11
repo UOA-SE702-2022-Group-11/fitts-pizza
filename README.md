@@ -74,7 +74,7 @@ The choice of three variants was to allow the time taken to complete the task to
 
 The initial project plan included a results breakdown of the design task similar to the abstract task. This would display the distance and width of each interface element, as well as the calculated movement time and index of difficulty values.
 
-In the final implementation, this was changed to include some additional information. As the complexity of the interface has increased, it becomes difficult to clearly break down each element in each of the three design variants. Instead, an overall average index of difficulty value is calculated. This is in addition to the total time taken to complete each task, total misclicks, and clicks per second. This provides a simpler overview to compare each of the three designs.
+In the final implementation, the results page gives a summary of the three interface variants. Each summary displays the total time taken to complete the task, total number of misclicks, and the clicks per second. These were chosen to give a simplified overview of each task. As the complexity of the interface has increased, it becomes difficult to clearly break down each element in each of the three design variants. This simplified summary means participants can clearly compare the time taken against how well each interface variant supports Fitts' Law. 
 
 ## Acknowledgements
 
