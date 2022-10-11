@@ -289,6 +289,8 @@ function handleDownloadResults() {
 
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
+let numOrderItems = 0;
+
 function addItem(item) {
   goodClick();
   const order = document.getElementById("current-order-list");
@@ -297,13 +299,27 @@ function addItem(item) {
   for (const orderItem of order.children) {
     checkedItems.add(orderItem.textContent);
   }
-  if (checkedItems.has(item)) {
+  if (checkedItems.has(item + "x")) {
     return false;
   }
 
-  const itemNode = document.createElement("li");
+  let itemNode = document.createElement("li");
+  numOrderItems++;
+  itemNode.className = "orderItem" + numOrderItems;
   const itemText = document.createTextNode(item);
+  let itemBtn = document.createElement("button");
+  itemBtn.innerHTML = "x";
+  itemBtn.style.color = "red";
+  itemBtn.style.marginLeft = "0.5rem";
+  itemBtn.className = "orderItem" + numOrderItems;
+  itemBtn.addEventListener("click", (event) => {
+    goodClick();
+    let nodesToDelete = document.getElementsByClassName(event.target.className);
+    nodesToDelete[0].parentNode.removeChild(nodesToDelete[0]);
+  });
+
   itemNode.appendChild(itemText);
+  itemNode.appendChild(itemBtn);
   order.appendChild(itemNode);
 }
 function changeCategory(categoryId) {
@@ -365,7 +381,7 @@ function checkOrder() {
 
   for (const currentOrderItem of currentOrderItems) {
     for (const orderItem of orders[currentOrder]) {
-      if (orderItem === currentOrderItem.textContent) {
+      if (orderItem + "x" === currentOrderItem.textContent) {
         correctItemCount++;
       }
     }
@@ -378,6 +394,7 @@ function submitOrder() {
   goodClick();
   if (checkOrder()) {
     currentOrder++;
+    numOrderItems = 0;
     document.getElementById("order-list").innerHTML = "";
     document.getElementById("current-order-list").innerHTML = "";
     for (const orderItem of orders[currentOrder]) {
