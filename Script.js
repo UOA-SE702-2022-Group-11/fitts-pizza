@@ -74,11 +74,54 @@ function dummyResults() {
   completionTime = [147, 170, 163];
 }
 function loadResults(){
+  alert('test')
+  clicksTotal = [];
+  misClicks = [];
+  completionTime = [];
+  let totMisClicks = 0;
+  let catMisClicks = 0;
+  let topMisClicks = 0;
 
+  let dataString1 = window.sessionStorage.getItem("data1");
+  alert(dataString1);
+  let data1 = JSON.parse(dataString1);
+
+  clicksTotal.push(data1.clicks);
+  totMisClicks += data1.missClicks;
+  catMisClicks += data1.categoryMissClicks;
+  topMisClicks += data1.toppingMissClicks;
+  completionTime.push(data1.time);
+  alert(clicksTotal);
+  alert(completionTime);
+
+  let dataString2 = window.sessionStorage.getItem("data2");
+  let data2 = JSON.parse(dataString2);
+
+  clicksTotal.push(data2.clicks);
+  totMisClicks += data2.missClicks;
+  catMisClicks += data2.categoryMissClicks;
+  topMisClicks += data2.toppingMissClicks;
+  completionTime.push(data2.time);
+
+  let dataString3 = window.sessionStorage.getItem("data3");
+  let data3 = JSON.parse(dataString3);
+
+  clicksTotal.push(data3.clicks);
+  totMisClicks += data3.missClicks;
+  catMisClicks += data3.categoryMissClicks;
+  topMisClicks += data3.toppingMissClicks;
+  completionTime.push(data1.time);
+
+  misClicks = [
+      [totMisClicks, ""],
+      [catMisClicks, "Pizza select"],
+      [topMisClicks, "Toppings select"],
+  ]
+  alert(misClicks)
 }
 
 function generateResults() {
-  dummyResults();
+  loadResults();
 
   var clicksPerSec = [];
 
@@ -350,58 +393,56 @@ let goodClicks = 0;
 
 function missclick() {
   clicks += 1
-  localStorage.setItem("clicks", clicks)
+  sessionStorage.setItem("clicks", clicks)
   alert(clicks - goodClicks);
 }
 function toppingClick(){
   toppingClicks += 1;
   let toppingMissClicks = clicks - toppingClicks;
-  localStorage.setItem("toppingMissClicks", toppingMissClicks)
+  sessionStorage.setItem("toppingMissClicks", toppingMissClicks)
 }
 function categoryCLick(){
   categoryClicks += 1;
   let categoryMissClicks = clicks - toppingClicks;
-  localStorage.setItem("categoryMissClicks", categoryMissClicks)
+  sessionStorage.setItem("categoryMissClicks", categoryMissClicks)
 }
 function goodClick() {
   goodClicks += 1;
 }
 function getClicks(){
   let missClicks = clicks - goodClicks;
-  localStorage.setItem("missClicks", missClicks);
+  sessionStorage.setItem("missClicks", missClicks);
   return missClicks;
 }
 function start() {
   let timeStart = Date.now();
-  localStorage.setItem("timeStart", timeStart);
+  sessionStorage.setItem("timeStart", timeStart);
   alert(timeStart);
-  window.location.href = 'Pizza.html';
 }
 function end() {
   let timeEnd = Date.now();
-  localStorage.setItem("timeEnd", timeEnd);
+  sessionStorage.setItem("timeEnd", timeEnd);
   alert(timeEnd);
   getClicks()
-  window.location.href = 'Results.html';
 }
 function showVariables() {
   alert('show')
-  let output = localStorage.getItem("timeStart");
+  let output = sessionStorage.getItem("timeStart");
   alert(output);
 }
 function getTimeSpan() {
-  let timeStart = localStorage.getItem("timeStart");
-  let timeEnd = localStorage.getItem("timeEnd");
+  let timeStart = sessionStorage.getItem("timeStart");
+  let timeEnd = sessionStorage.getItem("timeEnd");
   let duration = timeEnd - timeStart;
   alert(duration);
   return duration;
 }
-function getData(){
+function getData(version){
   alert('test');
-  let clicks = localStorage.getItem("clicks");
-  let missClicks = localStorage.getItem("missClicks");
-  let toppingMissClicks = localStorage.getItem("toppingMissClicks");
-  let categoryMissClicks = localStorage.getItem("categoryMissClicks");
+  let clicks = sessionStorage.getItem("clicks");
+  let missClicks = sessionStorage.getItem("missClicks");
+  let toppingMissClicks = sessionStorage.getItem("toppingMissClicks");
+  let categoryMissClicks = sessionStorage.getItem("categoryMissClicks");
   duration = getTimeSpan()
   let data = {
     time : duration,
@@ -411,12 +452,25 @@ function getData(){
     categoryMissClicks : categoryMissClicks
   }
   let dataString = JSON.stringify(data)
+  sessionStorage.setItem("data"+version, dataString)
   alert(dataString)
   var a = document.createElement("a");
   var file = new Blob([dataString], {type: 'text/plain'});
   a.href = URL.createObjectURL(file);
-  a.download = 'data.js';
+  a.download = "data"+version+".js";
   a.click();
+}
+function changeVersion(version){
+  getData(version)
+  clicks = 0;
+  toppingClicks = 0;
+  categoryClicks = 0;
+  goodClicks = 0;
+  sessionStorage.setItem("clicks", 0);
+  sessionStorage.setItem("toppingMissClicks", 0);
+  sessionStorage.setItem("categoryMissClicks", 0);
+  sessionStorage.setItem("missClicks", 0);
+
 }
 
 let currentOrder = 0;
