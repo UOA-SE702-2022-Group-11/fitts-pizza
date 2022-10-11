@@ -236,3 +236,24 @@ function handleDownloadResults() {
 
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
 }
+
+function processConsentDetails() {
+	researcherName = document.getElementById("researcherName").value;
+	sessionNumber = document.getElementById("sessionNumber").value;
+	consented = document.querySelector('#consent').checked;
+
+	//Check if participant consents
+	if (!consented) {
+		//Participant does not consent
+		document.getElementById("needConsentMessage").style.display = "block";
+		return
+	} else {
+		document.getElementById("needConsentMessage").style.display = "none";
+	}
+
+	sessionStorage.setItem("Researcher_Name", researcherName);
+	sessionStorage.setItem("Session_Number", sessionNumber);
+	sessionStorage.setItem("Consented", consented);
+
+	window.location.href = "Intro.html";
+}
