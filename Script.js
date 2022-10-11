@@ -397,14 +397,19 @@ function submitOrder() {
     numOrderItems = 0;
     document.getElementById("order-list").innerHTML = "";
     document.getElementById("current-order-list").innerHTML = "";
-    for (const orderItem of orders[currentOrder]) {
-      const order = document.getElementById("order-list");
-      const itemNode = document.createElement("li");
-      const itemText = document.createTextNode(orderItem);
-      itemNode.appendChild(itemText);
-      order.appendChild(itemNode);
+    if (currentOrder < 3) {
+      for (const orderItem of orders[currentOrder]) {
+        const order = document.getElementById("order-list");
+        const itemNode = document.createElement("li");
+        const itemText = document.createTextNode(orderItem);
+        itemNode.appendChild(itemText);
+        order.appendChild(itemNode);
+      }
+      alert("Good job, let's move on to the next order.");
+    } else {
+      document.getElementById("order-list").innerHTML = "No more orders";
+      document.getElementById("nextTaskBtn").style.display = "block";
     }
-    alert("Good job, let's move on to the next order.");
   } else {
     alert("Sorry, but this order is not quite right. Keep trying.");
   }
