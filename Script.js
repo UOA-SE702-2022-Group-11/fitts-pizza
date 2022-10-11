@@ -74,7 +74,7 @@ function dummyResults() {
   completionTime = [147, 170, 163];
 }
 function loadResults(){
-  alert('test')
+
   clicksTotal = [];
   misClicks = [];
   completionTime = [];
@@ -83,7 +83,6 @@ function loadResults(){
   let topMisClicks = 0;
 
   let dataString1 = window.sessionStorage.getItem("data1");
-  alert(dataString1);
   let data1 = JSON.parse(dataString1);
 
   clicksTotal.push(data1.clicks);
@@ -91,8 +90,7 @@ function loadResults(){
   catMisClicks += data1.categoryMissClicks;
   topMisClicks += data1.toppingMissClicks;
   completionTime.push(data1.time);
-  alert(clicksTotal);
-  alert(completionTime);
+
 
   let dataString2 = window.sessionStorage.getItem("data2");
   let data2 = JSON.parse(dataString2);
@@ -117,7 +115,6 @@ function loadResults(){
       [catMisClicks, "Pizza select"],
       [topMisClicks, "Toppings select"],
   ]
-  alert(misClicks)
 }
 
 function generateResults() {
@@ -346,7 +343,7 @@ let numOrderItems = 0;
 let currentTask = 0;
 
 function addItem(item) {
-  goodClick();
+  goodTopClick();
   const order = document.getElementById("current-order-list");
 
   const checkedItems = new Set();
@@ -377,7 +374,7 @@ function addItem(item) {
   order.appendChild(itemNode);
 }
 function changeCategory(categoryId) {
-  goodClick();
+  goodCatClick();
   const containers = document.getElementsByClassName(
     "items-container-" + (currentTask + 1)
   );
@@ -398,25 +395,36 @@ function changeCategory(categoryId) {
   document.getElementById(categoryId + "-category-btn").style.backgroundColor =
     "palegreen";
 }
+let timeStart = 0;
+let timeEnd = 0;
 let clicks = 0;
-let toppingClicks = 0;
+let toppingClicks = 0
+let goodTopClicks = 0;
 let categoryClicks = 0;
+let goodCatClicks = 0;
 let goodClicks = 0;
 
 function missclick() {
-  clicks += 1
+  clicks += 1;
   sessionStorage.setItem("clicks", clicks)
-  alert(clicks - goodClicks);
 }
 function toppingClick(){
   toppingClicks += 1;
-  let toppingMissClicks = clicks - toppingClicks;
+  let toppingMissClicks = toppingClicks-goodTopClicks;
   sessionStorage.setItem("toppingMissClicks", toppingMissClicks)
+}
+function goodTopClick(){
+  goodClick();
+  goodTopClicks += 1;
 }
 function categoryCLick(){
   categoryClicks += 1;
-  let categoryMissClicks = clicks - toppingClicks;
+  let categoryMissClicks = categoryClicks-goodCatClicks;
   sessionStorage.setItem("categoryMissClicks", categoryMissClicks)
+}
+function goodCatClick(){
+  goodClick();
+  goodCatClicks += 1;
 }
 function goodClick() {
   goodClicks += 1;
@@ -427,20 +435,13 @@ function getClicks() {
   return missClicks;
 }
 function start() {
-  let timeStart = Date.now();
+  timeStart = Date.now();
   sessionStorage.setItem("timeStart", timeStart);
-  alert(timeStart);
 }
 function end() {
-  let timeEnd = Date.now();
+  timeEnd = Date.now();
   sessionStorage.setItem("timeEnd", timeEnd);
-  alert(timeEnd);
   getClicks()
-}
-function showVariables() {
-  alert('show')
-  let output = sessionStorage.getItem("timeStart");
-  alert(output);
 }
 function getTimeSpan() {
   let timeStart = sessionStorage.getItem("timeStart");
@@ -449,7 +450,7 @@ function getTimeSpan() {
   return duration;
 }
 function getData(version){
-  alert('test');
+  getClicks();
   let clicks = sessionStorage.getItem("clicks");
   let missClicks = sessionStorage.getItem("missClicks");
   let toppingMissClicks = sessionStorage.getItem("toppingMissClicks");
@@ -464,7 +465,7 @@ function getData(version){
   }
   let dataString = JSON.stringify(data)
   sessionStorage.setItem("data"+version, dataString)
-  alert(dataString)
+
   var a = document.createElement("a");
   var file = new Blob([dataString], {type: 'text/plain'});
   a.href = URL.createObjectURL(file);
@@ -475,8 +476,12 @@ function changeVersion(version){
   getData(version)
   clicks = 0;
   toppingClicks = 0;
+  goodTopClicks = 0;
   categoryClicks = 0;
+  goodCatClicks = 0;
   goodClicks = 0;
+  timeStart = 0;
+  timeEnd = 0;
   sessionStorage.setItem("clicks", 0);
   sessionStorage.setItem("toppingMissClicks", 0);
   sessionStorage.setItem("categoryMissClicks", 0);
@@ -537,8 +542,10 @@ function submitOrder() {
     alert("Sorry, but this order is not quite right. Keep trying.");
   }
 }
-
 function nextPizzaTask() {
+  goodClick();
+  end();
+  changeVersion(currentTask+1)
   currentOrder = 0;
   numOrderItems = 0;
   console.log(currentTask);
@@ -662,7 +669,7 @@ function nextPizzaTask() {
 
     currentTask = 2;
   } else if (currentTask == 2) {
-    end();
+    window.location.href = "Results.html";
   }
 }
 
