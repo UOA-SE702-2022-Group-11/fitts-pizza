@@ -24,8 +24,8 @@ https://github.com/UOA-SE702-2022-Group-11/fitts-pizza
 
 1. Download the project by either:
    1. Cloning the repository by running the following command in a terminal `git clone https://github.com/UOA-SE702-2022-Group-11/fitts-pizza.git`
-   2. Or download and unzip the folder
-2. Open the Consent.html page in a web browser
+   2. OR download and unzip the folder
+2. Open the "Consent.html" page in a web browser
 3. Begin!
 
 ## Features
@@ -46,7 +46,7 @@ During the activity, you are able to download and save the results of the questi
 
 ### Questionnaires
 
-The pre and post test questionnaires were significantly changed. The initial project plan involved a single comparison question based on an existing website design. Users would be asked to rank how well they thought the page applied to Fitts' Law, and to explain why. Ultimately this was changed as it was deemed too arbitrary and the qualitative evaluation would be too difficult to easily analyse for the scope of the project.
+The pre and post test questionnaires were significantly changed. The initial project plan involved a single comparison question based on an existing website design. Users would be asked to rank how well they thought the page applied to Fitts' Law, and to explain why. Ultimately, this was changed as it was deemed too arbitrary, and the qualitative evaluation would be too difficult to easily analyse for the scope of the project.
 
 The modified questionnaires include an increased number of questions based on four different question types. There is also a greater focus on more quantitative data to allow for easier analysis of results.
 
@@ -54,9 +54,9 @@ The first type is a single compare and contrast evaluation question. This involv
 
 The second question type is the ranking evaluation. Participants are given five designs to rank from best to worst based on how well they meet Fitts' Law. As another quantitative question, a simple comparison between the two activity groups can be made.
 
-The third question type is the multi-choice quiz questions. These five questions include more theory based concepts of Fitts' Law to investigate how well users are able to apply their knowledge they have gained during the activity.
+The third question type is the multi-choice quiz questions. These five questions include more theory-based concepts of Fitts' Law to investigate how well users are able to apply their knowledge they have gained during the activity.
 
-The final question type is the attitude questionnaire. These utilise a 5-point Likert scale to rate a user's feelings towards different aspects of Fitts' Law. If users are better able to appreciate the concept of Fitts' Law more after the realistic activity compared to the abstract one, this may indicate the realistic activity can be more effective in teaching Fitts' Law concepts. These more subjective questions can be combined with the previous objective questions to gain a greater understanding of the participants' views. If the previous question results prove to be very similar between the two activity groups, their attitude toward Fitts' Law itself can be another method of analysis effectiveness.
+The final question type is the attitude questionnaire. These utilise a 5-point Likert scale to rate a user's feelings towards different aspects of Fitts' Law. If users are better able to appreciate the concept of Fitts' Law more after the realistic activity compared to the abstract one, this may indicate the realistic activity can be more effective in teaching Fitts' Law concepts. These more subjective questions can be combined with the previous objective questions to gain a greater understanding of the participants' views. If the previous question results prove to be very similar between the two activity groups, their attitude toward Fitts' Law itself can be another perspective to use for analysis.
 
 The initial project plan included a final feedback questionnaire page to rate various aspects of the educational website itself. Ultimately, this was not included as to reduce the number of questions asked to the participants. Additionally, the tool has already been assessed for usability before evaluating on participants by testing within the group.
 
@@ -70,7 +70,7 @@ The task was also changed from a login form to a more entertaining pizza order c
 
 The choice of three variants was to allow the time taken to complete the task to be comparable to the time taken to complete the abstract task. This ensures greater consistency between the two activities. Where the abstract task has a total of 100 clicks, the realistic task will take less clicks to complete. However, the time taken will remain similar as users take longer to consider what is required for each order.
 
-## Realistic design activity results page
+### Realistic design activity results page
 
 The initial project plan included a results breakdown of the design task similar to the abstract task. This would display the distance and width of each interface element, as well as the calculated movement time and index of difficulty values.
 
