@@ -1,3 +1,49 @@
+
+function saveAttitudeRankingsData() {
+  sessionStorage.setItem("A-s1", document.getElementById('A-s1').value);
+  sessionStorage.setItem("A-s2", document.getElementById('A-s2').value);
+  sessionStorage.setItem("A-s3", document.getElementById('A-s3').value);
+  sessionStorage.setItem("A-s4", document.getElementById('A-s4').value);
+  sessionStorage.setItem("A-s5", document.getElementById('A-s5').value);
+  sessionStorage.setItem("A-s6", document.getElementById('A-s6').value);
+  sessionStorage.setItem("A-s7", document.getElementById('A-s7').value);
+
+  navigateToQuestionnaireResultsPage();
+}
+
+function saveTheoryAnswersData() {
+  //Check all questions have been answered
+  let theoryQuestionsCount = 5;
+  let answeredQuestionCount = 0;
+  var options;
+
+  for (let i = 1; i < theoryQuestionsCount + 1; i++) {
+    options = document.getElementsByName("Q"+i);
+    
+    for (let count = 0; count < options.length; count++) {
+      if (options[count].checked) {
+        answeredQuestionCount++;
+        break;
+      }
+    }
+  }
+
+  if (answeredQuestionCount != theoryQuestionsCount) {
+    //Not all questions were answered
+    document.getElementById("theoryQuestionsIncompleteMessage").style.display = "block";
+  } else {
+    document.getElementById("theoryQuestionsIncompleteMessage").style.display = "none";
+  }
+
+  sessionStorage.setItem("T-Q1", document.querySelector('input[name="Q1"]:checked').value);
+  sessionStorage.setItem("T-Q2", document.querySelector('input[name="Q2"]:checked').value);
+  sessionStorage.setItem("T-Q3", document.querySelector('input[name="Q3"]:checked').value);
+  sessionStorage.setItem("T-Q4", document.querySelector('input[name="Q4"]:checked').value);
+  sessionStorage.setItem("T-Q5", document.querySelector('input[name="Q5"]:checked').value);
+
+  window.location.href = "attitudes.html";
+}
+
 var clicksTotal = [] // length 3 array, index is task number
 var misClicks = [] // length 3x2 array, index is task number, value is [quantity, description]
 var completionTime = [] // length 3 array, index is task number
@@ -125,21 +171,96 @@ function handleRankingQuestions() {
     );
   }
 
-  window.location.href = "questionnaireResults.html";
+  window.location.href = "theory.html";
+}
+
+function startPreTest() {
+  sessionStorage.setItem("Pre-Test Complete", "false");
+
+  window.location.href="questionnaire-pages/testIntro.html";
+}
+
+function navigateToQuestionnaireResultsPage() {
+  let preTestComplete = sessionStorage.getItem("Pre-Test Complete");
+
+  if (preTestComplete === "false") {
+    sessionStorage.setItem("Pre-Test Complete", "true");
+    window.location.href="pretestQuestionnaireResults.html";
+  } else {
+    window.location.href="posttestQuestionnaireResults.html";
+  }
 }
 
 function handleDownloadResults() {
+  const sessionDetails = {
+    Researcher_Name: sessionStorage.getItem("researcherName"),
+    Session_Number: sessionStorage.getItem("sessionNumber"),
+    Consent_Obtained: sessionStorage.getItem("consented"),
+  }
+
+  const compareContrastResults = {
+    CC1: sessionStorage.getItem("compareContrast1"),
+    CC2: sessionStorage.getItem("compareContrast2"),
+  }
+
   const rankingResults = {
-    1: sessionStorage.getItem("rankingChoice1"),
-    2: sessionStorage.getItem("rankingChoice2"),
-    3: sessionStorage.getItem("rankingChoice3"),
-    4: sessionStorage.getItem("rankingChoice4"),
-    5: sessionStorage.getItem("rankingChoice5"),
+    R1: sessionStorage.getItem("rankingChoice1"),
+    R2: sessionStorage.getItem("rankingChoice2"),
+    R3: sessionStorage.getItem("rankingChoice3"),
+    R4: sessionStorage.getItem("rankingChoice4"),
+    R5: sessionStorage.getItem("rankingChoice5"),
   };
 
-  const blob = new Blob([JSON.stringify(rankingResults)], {
+  const attitudeResults = {
+    A_s1: sessionStorage.getItem("A-s1"),
+    A_s2: sessionStorage.getItem("A-s2"),
+    A_s3: sessionStorage.getItem("A-s3"),
+    A_s4: sessionStorage.getItem("A-s4"),
+    A_s5: sessionStorage.getItem("A-s5"),
+    A_s6: sessionStorage.getItem("A-s6"),
+    A_s7: sessionStorage.getItem("A-s7"),
+  }
+
+  const theoryAnswers =  {
+    T_Q1: sessionStorage.getItem("T-Q1"),
+    T_Q2: sessionStorage.getItem("T-Q2"),
+    T_Q3: sessionStorage.getItem("T-Q3"),
+    T_Q4: sessionStorage.getItem("T-Q4"),
+    T_Q5: sessionStorage.getItem("T-Q5"),
+  }
+
+  const evaluationResults = {
+    SessionDetails: sessionDetails,
+    CompareContrast: compareContrastResults,
+    Ranking: rankingResults,
+    Attitude: attitudeResults,
+    Theory: theoryAnswers,
+  }
+
+  const blob = new Blob([JSON.stringify(evaluationResults)], {
     type: "application/json",
   });
 
   document.getElementById("blob").href = window.URL.createObjectURL(blob);
+}
+
+function processConsentDetails() {
+	researcherName = document.getElementById("researcherName").value;
+	sessionNumber = document.getElementById("sessionNumber").value;
+	consented = document.querySelector('#consent').checked;
+
+	//Check if participant consents
+	if (!consented) {
+		//Participant does not consent
+		document.getElementById("needConsentMessage").style.display = "block";
+		return
+	} else {
+		document.getElementById("needConsentMessage").style.display = "none";
+	}
+
+	sessionStorage.setItem("researcherName", researcherName);
+	sessionStorage.setItem("sessionNumber", sessionNumber);
+	sessionStorage.setItem("consented", consented);
+
+	window.location.href = "Intro.html";
 }

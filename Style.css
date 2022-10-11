@@ -45,6 +45,17 @@ footer {
 .abstractActivity {
 }
 
+
+.instructions {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.questionnaire {
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 table, th, td {
@@ -149,4 +160,32 @@ select {
 .error {
   color: red;
   display: none;
+}
+
+.consentFormInput {
+  width: 700px;
+  font-size: 1.5em;
+}
+
+.consentFormParagraph {
+  font-size: 20pt;
+}
+
+.checkbox {
+  width: 45px;
+  height: 45px;
+}
+
+.checkboxForm {
+  width: 50px;
+}
+
+.checkboxLabel {
+  width: 700px;
+}  
+
+.errorMessage {
+  color: red;
+  display: none;
+  margin-left: 15%;
 }
