@@ -327,22 +327,60 @@ function changeCategory(categoryId) {
 let clicks = 0;
 let goodClicks = 0;
 function missclick() {
-  clicks += 1;
+  clicks += 1
+  localStorage.setItem("clicks", clicks)
   alert(clicks - goodClicks);
 }
 function goodClick() {
   goodClicks += 1;
 }
-let timeStart = 0;
-let timeEnd = 0;
+function getClicks(){
+  let missClicks = clicks - goodClicks;
+  localStorage.setItem("missClicks", missClicks);
+  return missClicks;
+}
 function start() {
-  timeStart = Date.now();
+  let timeStart = Date.now();
+  localStorage.setItem("timeStart", timeStart);
+  alert(timeStart);
+  window.location.href = 'Pizza.html';
 }
 function end() {
-  timeEnd = Date.now();
+  let timeEnd = Date.now();
+  localStorage.setItem("timeEnd", timeEnd);
+  alert(timeEnd);
+  getClicks()
+  window.location.href = 'Test.html';
+}
+function showVariables() {
+  alert('show')
+  let output = localStorage.getItem("timeStart");
+  alert(output);
 }
 function getTimeSpan() {
-  return timeEnd - timeStart;
+  let timeStart = localStorage.getItem("timeStart");
+  let timeEnd = localStorage.getItem("timeEnd");
+  let duration = timeEnd - timeStart;
+  alert(duration);
+  return duration;
+}
+function getData(){
+  alert('test');
+  let clicks = localStorage.getItem("clicks");
+  let missClicks = localStorage.getItem("missClicks");
+  duration = getTimeSpan()
+  let data = {
+    time : duration,
+    clicks : clicks,
+    missClicks : missClicks
+  }
+  let dataString = JSON.stringify(data)
+  alert(dataString)
+  var a = document.createElement("a");
+  var file = new Blob([dataString], {type: 'text/plain'});
+  a.href = URL.createObjectURL(file);
+  a.download = 'data.js';
+  a.click();
 }
 
 let currentOrder = 0;
